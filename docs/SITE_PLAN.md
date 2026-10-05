@@ -24,7 +24,7 @@ Showcase Ravi Sorathiya as an **Android developer (Kotlin, Jetpack Compose)**, c
 | Route | View | Purpose |
 | --- | --- | --- |
 | `/` | `HomeView.vue` | Hero + typewriter, count-up stats, phone mockup, icon marquee, featured apps, flagship spotlight, latest notes, CTA |
-| `/about` | `AboutView.vue` | Bio, tech explorer (skill → apps), experience & education |
+| `/about` | `AboutView.vue` | Bio, tech explorer (skill → apps), interactive career journey (`CareerJourney.vue`: work + study timeline, linked cards) |
 | `/projects` | `ProjectsView.vue` | All apps; full-text search + status/type filters synced to the URL (`?q=&status=&type=`) |
 | `/projects/:slug` | `ProjectDetailView.vue` | Screenshot gallery (lightbox), features / under-the-hood tabs, **case study** (Markdown body), tech stack, Google Play badge, related apps |
 | `/blog` | `BlogIndexView.vue` | Dev Notes list, tag filter (`?tag=`), RSS link. Exists only when ≥ 1 published post. |
@@ -159,7 +159,8 @@ Profile, socials, skills, experience and education are in [`src/data/portfolio.j
 - [x] Review the 3 draft articles in `content/blog/` and publish (`draft: false`)
 - [x] Real email in `profile.email`
 - [x] Company & dates in `experience`
-- [ ] Fill `education`
+- [x] Education (MCA, BCA) + interactive career journey on /about
+- [ ] University names in `education`
 - [ ] LinkedIn / other profiles in `socials`
 - [ ] Optional: `public/resume.pdf` + `resumeUrl`
 - [ ] Google Search Console: verification meta tag, then submit `sitemap.xml`

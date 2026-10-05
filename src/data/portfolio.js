@@ -46,11 +46,14 @@ export const skills = [
   { group: 'Tooling & Release', items: ['Gradle KTS', 'Baseline Profiles', 'Macrobenchmark', 'In-app Updates', 'Git'] },
 ]
 
+// Career journey on /about. Dates are 'YYYY-MM' (or 'YYYY' when only the
+// year is known); `end: null` means current. Durations are derived from them.
 export const experience = [
   {
     role: 'Android Developer',
     company: 'Origin Infotech',
-    period: 'Apr 2025 — Present',
+    start: '2025-04',
+    end: null,
     description:
       'Building and maintaining a portfolio of consumer Android apps on Google Play: dialers, SMS messengers, galleries, calendar, alarm clock and utilities.',
     tags: ['Kotlin', 'Jetpack Compose', 'Firebase'],
@@ -58,7 +61,8 @@ export const experience = [
   {
     role: 'Android Developer',
     company: 'Wonder Software',
-    period: 'Jan 2021 — Mar 2025',
+    start: '2021-01',
+    end: '2025-03',
     description: 'Built and maintained native Android apps in Kotlin and Java.',
     tags: ['Kotlin', 'Java'],
   },
@@ -66,10 +70,18 @@ export const experience = [
 
 export const education = [
   {
-    role: 'Degree name', // TODO
-    company: 'University Name',
-    period: '20XX — 20XX',
-    description: 'Add your education here.',
+    degree: 'Master of Computer Applications',
+    short: 'MCA',
+    school: '', // TODO: university / college name
+    start: '2019',
+    end: '2021',
+  },
+  {
+    degree: 'Bachelor of Computer Applications',
+    short: 'BCA',
+    school: '', // TODO: university / college name
+    start: '2016',
+    end: '2019',
   },
 ]
 

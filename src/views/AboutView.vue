@@ -4,7 +4,7 @@ import { education, experience, liveCount, profile, projects, skills } from '../
 import AppIcon from '../components/AppIcon.vue'
 import SectionHeading from '../components/SectionHeading.vue'
 import StatusBadge from '../components/StatusBadge.vue'
-import TimelineItem from '../components/TimelineItem.vue'
+import CareerJourney from '../components/CareerJourney.vue'
 import { personSchema, useSeo } from '../composables/seo'
 
 useSeo({
@@ -108,19 +108,14 @@ const selectedProjects = computed(() => usage(selected.value))
       </div>
     </section>
 
-    <section class="mt-20 grid gap-16 lg:grid-cols-2">
-      <div v-reveal>
-        <SectionHeading eyebrow="// experience" title="Experience" />
-        <ol>
-          <TimelineItem v-for="(e, i) in experience" :key="i" :item="e" />
-        </ol>
-      </div>
-      <div v-reveal="150">
-        <SectionHeading eyebrow="// education" title="Education" />
-        <ol>
-          <TimelineItem v-for="(e, i) in education" :key="i" :item="e" />
-        </ol>
-      </div>
+    <section class="mt-20">
+      <SectionHeading
+        v-reveal
+        eyebrow="// journey"
+        title="Career journey"
+        subtitle="From a BCA in 2016 to shipping Android apps on Google Play. Hover or tap any bar to jump to that chapter."
+      />
+      <CareerJourney :experience="experience" :education="education" :live-count="liveCount" />
     </section>
   </div>
 </template>

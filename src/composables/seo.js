@@ -1,6 +1,6 @@
 import { computed, toValue } from 'vue'
 import { useHead } from '@unhead/vue'
-import { posts, profile, SITE_URL, socials } from '../data/portfolio'
+import { experience, posts, profile, SITE_URL, socials } from '../data/portfolio'
 
 // Generated at build time by scripts/og.mjs.
 const DEFAULT_IMAGE = `${SITE_URL}/og/default.png`
@@ -14,6 +14,7 @@ export const personSchema = {
   image: DEFAULT_IMAGE,
   description: profile.shortBio,
   email: `mailto:${profile.email}`,
+  worksFor: experience.filter((e) => !e.end).map((e) => ({ '@type': 'Organization', name: e.company })),
   knowsAbout: ['Android development', 'Kotlin', 'Jetpack Compose', 'Clean Architecture', 'Firebase', 'Google Play'],
   sameAs: socials.map((s) => s.url),
 }
