@@ -49,11 +49,18 @@ export const skills = [
 export const experience = [
   {
     role: 'Android Developer',
-    company: 'Company Name', // TODO: confirm company and dates
-    period: '20XX — Present',
+    company: 'Origin Infotech',
+    period: 'Apr 2025 — Present',
     description:
       'Building and maintaining a portfolio of consumer Android apps on Google Play: dialers, SMS messengers, galleries, calendar, alarm clock and utilities.',
     tags: ['Kotlin', 'Jetpack Compose', 'Firebase'],
+  },
+  {
+    role: 'Android Developer',
+    company: 'Wonder Software',
+    period: 'Jan 2021 — Mar 2025',
+    description: 'Built and maintained native Android apps in Kotlin and Java.',
+    tags: ['Kotlin', 'Java'],
   },
 ]
 

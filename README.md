@@ -197,7 +197,7 @@ Options: `--build` builds locally first (catches errors before pushing) · `--no
 
 - [x] ~~Contact email~~ (done)
 - [x] ~~Publish the first articles~~ (done: 3 live)
-- [ ] Company & dates in `experience`, and `education` (in `src/data/portfolio.js`)
+- [ ] `education` (in `src/data/portfolio.js`)
 - [ ] LinkedIn / other profiles in `socials`
 - [ ] Optional: `public/resume.pdf`, then set `resumeUrl: '/resume.pdf'`
 - [ ] Google Search Console: verify the site and submit `sitemap.xml` (see [SEO](#-seo))

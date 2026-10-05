@@ -158,7 +158,8 @@ Profile, socials, skills, experience and education are in [`src/data/portfolio.j
 
 - [x] Review the 3 draft articles in `content/blog/` and publish (`draft: false`)
 - [x] Real email in `profile.email`
-- [ ] Company & dates in `experience`; fill `education`
+- [x] Company & dates in `experience`
+- [ ] Fill `education`
 - [ ] LinkedIn / other profiles in `socials`
 - [ ] Optional: `public/resume.pdf` + `resumeUrl`
 - [ ] Google Search Console: verification meta tag, then submit `sitemap.xml`
