@@ -10,6 +10,8 @@ const postRaw = import.meta.glob('/content/blog/*.md', { query: '?raw', import: 
 const plain = (md) =>
   md
     .replace(/^---[\s\S]*?---/, '')
+    .replace(/<script[\s\S]*?<\/script>/g, ' ')
+    .replace(/<\/?[A-Z][\w-]*[^>]*>/g, ' ')
     .replace(/```[\s\S]*?```/g, ' ')
     .replace(/`([^`]*)`/g, '$1')
     .replace(/!?\[([^\]]*)\]\([^)]*\)/g, '$1')
