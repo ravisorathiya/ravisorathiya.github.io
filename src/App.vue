@@ -4,6 +4,7 @@ import { useWindowScroll, useWindowSize } from '@vueuse/core'
 import NavBar from './components/NavBar.vue'
 import SiteFooter from './components/SiteFooter.vue'
 import CommandPalette from './components/CommandPalette.vue'
+import StarField from './components/StarField.vue'
 import { paletteOpen } from './composables/palette'
 
 const { y } = useWindowScroll()
@@ -17,6 +18,7 @@ const progress = computed(() => {
 
 <template>
   <div class="flex min-h-screen flex-col">
+    <StarField />
     <div
       class="bg-brand-gradient fixed top-0 left-0 z-50 h-0.5 w-full origin-left"
       :style="{ transform: `scaleX(${progress})` }"

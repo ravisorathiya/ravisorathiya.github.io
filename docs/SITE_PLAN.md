@@ -176,6 +176,7 @@ Newest first. Record decisions that a future agent might otherwise undo.
 | Date | Decision |
 | --- | --- |
 | 2026-10-05 | Site moved to the `ravisorathiya` GitHub account: repo `ravisorathiya/ravisorathiya.github.io`, live at https://ravisorathiya.github.io/ (old ravioriginfo.github.io URL retired). |
+| 2026-10-05 | Site-wide animated galaxy background (`StarField.vue`, canvas): parallax stars, cursor constellations, shooting stars; paused when hidden, static under reduced motion. |
 | 2026-10-05 | Google Search Console verified via HTML file `public/google4041c6d8e2b20818.html` (never delete it, or verification is lost). |
 | 2026-10-02 | One-command publishing (`npm run deploy` / `publish.cmd`). Claude publishes every finished change automatically (owner preference). |
 | 2026-10-02 | Each live app shows its publishing Google Play developer account ("by …") on cards, the app page and share images. |
