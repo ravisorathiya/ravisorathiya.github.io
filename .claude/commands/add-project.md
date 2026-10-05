@@ -20,6 +20,6 @@ Steps (details in CLAUDE.md):
 7. Update `docs/PROJECTS.md`: Registry row, Totals, clear the Inbox line, Changelog line with today's date.
 8. Update the README "See all N apps" count.
 9. `npm run check` and `npm run build` must pass. Look at `dist/og/projects/<slug>.png`.
-10. Commit, push to `main`, wait for the deploy to succeed, and confirm `https://ravioriginfo.github.io/projects/<slug>` returns 200.
+10. Commit, push to `main`, wait for the deploy to succeed, and confirm `https://ravisorathiya.github.io/projects/<slug>` returns 200.
 
 Finish with a short summary: what was added, its status, its live URL, and anything the owner should confirm.

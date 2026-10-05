@@ -1,6 +1,6 @@
 # Blog Registry: Dev Notes
 
-> **Source of truth for the articles on https://ravioriginfo.github.io/blog.**
+> **Source of truth for the articles on https://ravisorathiya.github.io/blog.**
 > Each article is one Markdown file, `content/blog/<slug>.md`. Every file must have a row in **Registry** with the same
 > title, status and date, and every row must have a file. `npm run check` (also run in CI before every deploy) fails if
 > they drift apart.

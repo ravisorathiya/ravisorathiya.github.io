@@ -16,6 +16,6 @@ Input: $ARGUMENTS
 4. If it was featured, promote another app (`featured: true`) so exactly 4 stay featured. Tell the owner which one.
 5. Remove the slug from any blog post's `relatedProjects`, and update the README "See all N apps" count.
 6. `npm run check` and `npm run build` must pass.
-7. Commit, push to `main`, wait for the deploy, and confirm the old URL `https://ravioriginfo.github.io/projects/<slug>` returns 404.
+7. Commit, push to `main`, wait for the deploy, and confirm the old URL `https://ravisorathiya.github.io/projects/<slug>` returns 404.
 
 Finish with a one-line confirmation, including the new app totals.

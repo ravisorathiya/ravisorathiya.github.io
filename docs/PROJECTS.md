@@ -1,6 +1,6 @@
 # Project Registry
 
-> **Source of truth for which apps appear on https://ravioriginfo.github.io/.**
+> **Source of truth for which apps appear on https://ravisorathiya.github.io/.**
 > Each app is one Markdown file, `content/projects/<slug>.md` (data + case study). Every app file must have a row in
 > **Registry**, and every Registry row must have a file. `npm run check` (also run in CI before every deploy) fails if the
 > two drift apart.

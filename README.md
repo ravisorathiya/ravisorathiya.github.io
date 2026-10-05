@@ -1,6 +1,6 @@
 <div align="center">
 
-<a href="https://ravioriginfo.github.io/">
+<a href="https://ravisorathiya.github.io/">
   <img src="public/og.png" alt="Ravi Sorathiya — Android Developer portfolio" width="100%" />
 </a>
 
@@ -8,10 +8,10 @@
 
 **Android developer · Kotlin & Jetpack Compose · 12 apps live on Google Play**
 
-### 🌐 [ravioriginfo.github.io](https://ravioriginfo.github.io/)
+### 🌐 [ravisorathiya.github.io](https://ravisorathiya.github.io/)
 
-[![Live site](https://img.shields.io/badge/Live-ravioriginfo.github.io-10b981?style=for-the-badge&logo=googlechrome&logoColor=white)](https://ravioriginfo.github.io/)
-[![Deploy](https://img.shields.io/github/actions/workflow/status/ravioriginfo/ravioriginfo.github.io/deploy.yml?branch=main&style=for-the-badge&label=Deploy&logo=githubactions&logoColor=white)](https://github.com/ravioriginfo/ravioriginfo.github.io/actions)
+[![Live site](https://img.shields.io/badge/Live-ravisorathiya.github.io-10b981?style=for-the-badge&logo=googlechrome&logoColor=white)](https://ravisorathiya.github.io/)
+[![Deploy](https://img.shields.io/github/actions/workflow/status/ravisorathiya/ravisorathiya.github.io/deploy.yml?branch=main&style=for-the-badge&label=Deploy&logo=githubactions&logoColor=white)](https://github.com/ravisorathiya/ravisorathiya.github.io/actions)
 
 ![Vue](https://img.shields.io/badge/Vue_3-35495E?logo=vuedotjs&logoColor=4FC08D)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)
@@ -28,14 +28,14 @@
 
 | Page | URL |
 | --- | --- |
-| 🏠 Home | https://ravioriginfo.github.io/ |
-| 👤 About & tech explorer | https://ravioriginfo.github.io/about |
-| 📱 All apps (search + filters) | https://ravioriginfo.github.io/projects |
-| 🟢 Only apps live on Google Play | https://ravioriginfo.github.io/projects?status=live |
-| 📄 Flagship — PDF Reader & Editor | https://ravioriginfo.github.io/projects/pdf-reader |
-| 📝 Dev Notes (blog) | https://ravioriginfo.github.io/blog |
-| 📡 RSS feed | https://ravioriginfo.github.io/blog/rss.xml |
-| ✉️ Contact | https://ravioriginfo.github.io/contact |
+| 🏠 Home | https://ravisorathiya.github.io/ |
+| 👤 About & tech explorer | https://ravisorathiya.github.io/about |
+| 📱 All apps (search + filters) | https://ravisorathiya.github.io/projects |
+| 🟢 Only apps live on Google Play | https://ravisorathiya.github.io/projects?status=live |
+| 📄 Flagship — PDF Reader & Editor | https://ravisorathiya.github.io/projects/pdf-reader |
+| 📝 Dev Notes (blog) | https://ravisorathiya.github.io/blog |
+| 📡 RSS feed | https://ravisorathiya.github.io/blog/rss.xml |
+| ✉️ Contact | https://ravisorathiya.github.io/contact |
 
 > 💡 **Tip:** press <kbd>Ctrl</kbd> + <kbd>K</kbd> anywhere on the site to search every app and article.
 
@@ -78,12 +78,12 @@ publish.cmd         → double-click to publish
 
 | | App | What it is | Status |
 | :---: | --- | --- | --- |
-| <img src="public/images/apps/pdf-reader.webp" width="48" /> | [**PDF Reader & Editor**](https://ravioriginfo.github.io/projects/pdf-reader) | Annotate, sign, edit text, lock, convert & scan PDFs | 🟠 In progress |
-| <img src="public/images/apps/phone-call.webp" width="48" /> | [**Phone Call**](https://ravioriginfo.github.io/projects/phone-call) | Default dialer with spam blocking & call themes | 🟢 [Google Play](https://play.google.com/store/apps/details?id=com.phonecall.phone.contact.callerdialer) |
-| <img src="public/images/apps/messages-compose.webp" width="48" /> | [**Messages**](https://ravioriginfo.github.io/projects/messages-compose) | Default SMS & MMS app built in Jetpack Compose | 🟢 [Google Play](https://play.google.com/store/apps/details?id=com.message.textmessenger.smsapp) |
-| <img src="public/images/apps/gallery-pro.webp" width="48" /> | [**Gallery - Photo Gallery**](https://ravioriginfo.github.io/projects/gallery-pro) | Compose gallery with timeline, editor & photo picker | 🟢 [Google Play](https://play.google.com/store/apps/details?id=com.gallery.picturegalleryapp.gallerypro) |
+| <img src="public/images/apps/pdf-reader.webp" width="48" /> | [**PDF Reader & Editor**](https://ravisorathiya.github.io/projects/pdf-reader) | Annotate, sign, edit text, lock, convert & scan PDFs | 🟠 In progress |
+| <img src="public/images/apps/phone-call.webp" width="48" /> | [**Phone Call**](https://ravisorathiya.github.io/projects/phone-call) | Default dialer with spam blocking & call themes | 🟢 [Google Play](https://play.google.com/store/apps/details?id=com.phonecall.phone.contact.callerdialer) |
+| <img src="public/images/apps/messages-compose.webp" width="48" /> | [**Messages**](https://ravisorathiya.github.io/projects/messages-compose) | Default SMS & MMS app built in Jetpack Compose | 🟢 [Google Play](https://play.google.com/store/apps/details?id=com.message.textmessenger.smsapp) |
+| <img src="public/images/apps/gallery-pro.webp" width="48" /> | [**Gallery - Photo Gallery**](https://ravisorathiya.github.io/projects/gallery-pro) | Compose gallery with timeline, editor & photo picker | 🟢 [Google Play](https://play.google.com/store/apps/details?id=com.gallery.picturegalleryapp.gallerypro) |
 
-➡️ **[See all 14 apps →](https://ravioriginfo.github.io/projects)**
+➡️ **[See all 14 apps →](https://ravisorathiya.github.io/projects)**
 
 ---
 
@@ -140,7 +140,7 @@ What it does ([`scripts/deploy.mjs`](scripts/deploy.mjs)):
 2. commits all changes with your message (skipped if nothing changed)
 3. pushes to GitHub, which triggers the deploy workflow
 4. **waits for the deploy** and tells you if it succeeded or failed (with a link)
-5. confirms https://ravioriginfo.github.io/ is live
+5. confirms https://ravisorathiya.github.io/ is live
 
 Options: `--build` builds locally first (catches errors before pushing) · `--no-wait` pushes and exits.
 
@@ -266,10 +266,10 @@ npm run deploy -- "message"    # publish: check → commit → push → wait →
 
 ## ⚙️ How deployment works
 
-Hosted on **GitHub Pages** at **https://ravioriginfo.github.io/**.
+Hosted on **GitHub Pages** at **https://ravisorathiya.github.io/**.
 
 - Every push to `main` triggers [`deploy.yml`](.github/workflows/deploy.yml): `npm ci`, then `npm run check`, then `npm run build`, then publish `dist/`.
-- Check progress under the [**Actions** tab](https://github.com/ravioriginfo/ravioriginfo.github.io/actions).
+- Check progress under the [**Actions** tab](https://github.com/ravisorathiya/ravisorathiya.github.io/actions).
 - One-time setting (already done): **Settings → Pages → Source: GitHub Actions**.
 
 ---
@@ -282,8 +282,8 @@ Hosted on **GitHub Pages** at **https://ravioriginfo.github.io/**.
 | Title, description, canonical, Open Graph, Twitter | `src/composables/seo.js` |
 | Structured data (Person, SoftwareApplication, BlogPosting, Breadcrumbs) | `useSeo()` calls in each view |
 | Share image per page | generated at build → `/og/…png` |
-| Sitemap / RSS | https://ravioriginfo.github.io/sitemap.xml · `/blog/rss.xml` once posts are published |
-| Robots | https://ravioriginfo.github.io/robots.txt |
+| Sitemap / RSS | https://ravisorathiya.github.io/sitemap.xml · `/blog/rss.xml` once posts are published |
+| Robots | https://ravisorathiya.github.io/robots.txt |
 
 **Next step:** add the site in [Google Search Console](https://search.google.com/search-console) and submit `sitemap.xml`.
 
@@ -291,6 +291,6 @@ Hosted on **GitHub Pages** at **https://ravioriginfo.github.io/**.
 
 <div align="center">
 
-Made with 💚 by **Ravi Sorathiya** · [ravioriginfo.github.io](https://ravioriginfo.github.io/)
+Made with 💚 by **Ravi Sorathiya** · [ravisorathiya.github.io](https://ravisorathiya.github.io/)
 
 </div>

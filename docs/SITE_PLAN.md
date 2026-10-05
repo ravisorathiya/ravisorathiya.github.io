@@ -1,7 +1,7 @@
-# Site Plan: ravioriginfo.github.io
+# Site Plan: ravisorathiya.github.io
 
 > The living plan for Ravi Sorathiya's portfolio. AI agents and humans should read this before changing the site, and update it when a decision changes.
-> Live site: **https://ravioriginfo.github.io/** · Repo: https://github.com/ravioriginfo/ravioriginfo.github.io · Agent rules: [`CLAUDE.md`](../CLAUDE.md)
+> Live site: **https://ravisorathiya.github.io/** · Repo: https://github.com/ravisorathiya/ravisorathiya.github.io · Agent rules: [`CLAUDE.md`](../CLAUDE.md)
 
 ---
 
@@ -162,7 +162,7 @@ Profile, socials, skills, experience and education are in [`src/data/portfolio.j
 - [ ] LinkedIn / other profiles in `socials`
 - [ ] Optional: `public/resume.pdf` + `resumeUrl`
 - [ ] Google Search Console: verification meta tag, then submit `sitemap.xml`
-- [ ] Set the repo "Website" field to https://ravioriginfo.github.io/
+- [ ] Set the repo "Website" field to https://ravisorathiya.github.io/
 - [ ] Ideas: more articles (`/new-post`), Play ratings (only from real data)
 
 ---
@@ -173,6 +173,7 @@ Newest first. Record decisions that a future agent might otherwise undo.
 
 | Date | Decision |
 | --- | --- |
+| 2026-10-05 | Site moved to the `ravisorathiya` GitHub account: repo `ravisorathiya/ravisorathiya.github.io`, live at https://ravisorathiya.github.io/ (old ravioriginfo.github.io URL retired). |
 | 2026-10-02 | One-command publishing (`npm run deploy` / `publish.cmd`). Claude publishes every finished change automatically (owner preference). |
 | 2026-10-02 | Each live app shows its publishing Google Play developer account ("by …") on cards, the app page and share images. |
 | 2026-10-02 | Articles get their own registry, `docs/POSTS.md`, checked by `npm run check` like `PROJECTS.md`. |

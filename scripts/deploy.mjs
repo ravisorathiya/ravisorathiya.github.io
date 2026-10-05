@@ -10,8 +10,8 @@
 // Flags: --build (build locally first) · --no-wait (push and exit)
 import { execSync } from 'node:child_process'
 
-const REPO = 'ravioriginfo/ravioriginfo.github.io'
-const SITE = 'https://ravioriginfo.github.io/'
+const REPO = 'ravisorathiya/ravisorathiya.github.io'
+const SITE = 'https://ravisorathiya.github.io/'
 const args = process.argv.slice(2)
 const flags = new Set(args.filter((a) => a.startsWith('--')))
 const message = args.filter((a) => !a.startsWith('--')).join(' ').trim() || `Update site (${new Date().toISOString().slice(0, 10)})`

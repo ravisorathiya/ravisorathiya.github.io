@@ -63,7 +63,7 @@ const footer = (right) =>
     h('div', { alignItems: 'center', gap: 14 },
       h('div', { width: 44, height: 44, borderRadius: 12, alignItems: 'center', justifyContent: 'center', backgroundImage: 'linear-gradient(135deg,#10b981,#22c55e,#0d9488)', fontWeight: 800, fontSize: 18, color: '#fff' }, 'RS'),
       h('div', { fontWeight: 600, color: '#fff' }, 'Ravi Sorathiya'),
-      h('div', { color: '#6ee7b7' }, '· ravioriginfo.github.io'),
+      h('div', { color: '#6ee7b7' }, '· ravisorathiya.github.io'),
     ),
     right ? h('div', { color: '#6ee7b7' }, right) : null,
   )
@@ -117,7 +117,7 @@ async function defaultCard(projects) {
           h('div', { color: '#34d399' }, 'Sorathiya'),
         ),
         h('div', { fontSize: 30, color: '#a7f3d0', lineHeight: 1.35 }, `${live.length} apps live on Google Play: dialers, SMS, galleries, calendar & a PDF editor`),
-        h('div', { fontSize: 24, color: '#6ee7b7' }, 'ravioriginfo.github.io'),
+        h('div', { fontSize: 24, color: '#6ee7b7' }, 'ravisorathiya.github.io'),
       ),
       h('div', { flexWrap: 'wrap', width: 3 * 118 + 2 * 22, gap: 22, transform: 'rotate(-6deg)' },
         icons.map((src) => img(src, { width: 118, height: 118, borderRadius: 28, boxShadow: '0 18px 40px rgba(0,0,0,0.5)' })),

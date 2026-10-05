@@ -30,7 +30,7 @@ export const profile = {
 }
 
 export const socials = [
-  { name: 'GitHub', url: 'https://github.com/ravioriginfo', icon: 'github' },
+  { name: 'GitHub', url: 'https://github.com/ravisorathiya', icon: 'github' },
   // { name: 'LinkedIn', url: 'https://www.linkedin.com/in/your-username', icon: 'linkedin' },
   // { name: 'X', url: 'https://x.com/your-username', icon: 'x' },
 ]

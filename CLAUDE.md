@@ -2,7 +2,7 @@
 
 Guidance for AI agents working on this repo. **This site is maintained with AI**, so follow these workflows exactly and keep the docs in sync.
 
-- **What:** Ravi Sorathiya's Android-developer portfolio → **https://ravioriginfo.github.io/**
+- **What:** Ravi Sorathiya's Android-developer portfolio → **https://ravisorathiya.github.io/**
 - **Stack:**
   - Vue 3, Vite 8, Tailwind CSS v4 (+ typography), Vue Router 5
   - pre-rendered with `vite-ssg`
@@ -69,7 +69,7 @@ Source projects live in `D:\workspace\producation\` (shipped) and `D:\workspace\
 10. **Publish:**
     - commit, then push to `main`
     - wait for the Actions run to succeed
-    - `curl https://ravioriginfo.github.io/projects/<slug>` → 200
+    - `curl https://ravisorathiya.github.io/projects/<slug>` → 200
 
 ### Remove a project (`/remove-project <slug>`)
 1. Delete `content/projects/<slug>.md`, `public/images/apps/<slug>.webp` and `public/images/apps/<slug>/`.
@@ -90,7 +90,7 @@ Edit `content/projects/<slug>.md`. If title/status/type/featured/playPackage cha
    - **`draft: true`**
 3. Write the article: an intro, `##` sections (they become the table of contents), simplified code snippets, and a takeaways section. Link apps as `/projects/<slug>`.
 4. **Update `docs/POSTS.md`:** add the Registry row (slug, title, `draft`, date, related apps), update Totals, remove the idea line, and add a Changelog line.
-5. `npm run check`, then let the owner review with `npm run dev` (or `npm run build:drafts`). **Only after the owner approves**, set `draft: false`, change the Registry status to `published`, add a Changelog line, then build, commit, push, and confirm `https://ravioriginfo.github.io/blog/<slug>` returns 200.
+5. `npm run check`, then let the owner review with `npm run dev` (or `npm run build:drafts`). **Only after the owner approves**, set `draft: false`, change the Registry status to `published`, add a Changelog line, then build, commit, push, and confirm `https://ravisorathiya.github.io/blog/<slug>` returns 200.
 
 ## Publishing (always)
 
