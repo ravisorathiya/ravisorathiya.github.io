@@ -30,13 +30,14 @@ Claude researches the real source code, writes the article as a draft, adds it t
 <!-- posts:start (parsed by scripts/check-content.mjs; keep the table format) -->
 | Slug | Title | Status | Date | Related apps |
 | --- | --- | --- | --- | --- |
+| find-ravi-sorathiya-android-developer | Ravi Sorathiya: Android developer, Kotlin & Jetpack Compose | draft | 2026-10-06 | messages-compose, gallery-pro, pdf-reader |
 | how-i-use-ai-android-development-workflow | How I shaped AI to fit my Android development workflow | published | 2026-10-05 | pdf-reader, phone-call |
 | pdf-editor-pdfjs-webview-android | Building a PDF editor on Android with pdf.js inside a WebView | published | 2026-10-02 | pdf-reader |
 | android-dialer-incallservice-callscreeningservice | Writing a replacement phone dialer: InCallService and CallScreeningService | published | 2026-10-01 | phone-call, contacts-dialer, phone-caller-contacts |
 | shipping-android-apps-template-remote-config-baseline-profiles | One template, 11 Play Store apps: Remote Config, consent and Baseline Profiles | published | 2026-09-30 | phone-call, messages-compose, gallery-pro, calendar-2026 |
 <!-- posts:end -->
 
-**Totals:** 4 articles: 4 published · 0 drafts.
+**Totals:** 5 articles: 4 published · 1 draft.
 
 ---
 
@@ -44,6 +45,7 @@ Claude researches the real source code, writes the article as a draft, adds it t
 
 Newest first. One line per change.
 
+- **2026-10-06:** Drafted "Ravi Sorathiya: Android developer, Kotlin & Jetpack Compose" with 2 interactive components: `FindMeSearch` (a Google-style results mockup with a typing query, free-text matching, All/Apps/Articles tabs and a knowledge panel) and `ExploreMyWork` (interest → app → article explorer). Both read titles and icons from `content/`.
 - **2026-10-05:** Published "How I shaped AI to fit my Android development workflow" (owner approved).
 - **2026-10-05:** Drafted "How I shaped AI to fit my Android development workflow" (from `development/ongoing/PDFReaderOrigin` `:ai` module + personal Claude skills), with 4 interactive Vue components in `src/components/blog/`.
 - **2026-10-02:** Published all 3 articles (owner approved).
