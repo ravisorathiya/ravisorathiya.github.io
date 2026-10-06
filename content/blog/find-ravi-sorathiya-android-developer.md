@@ -10,6 +10,9 @@ draft: true
 <script setup>
 import FindMeSearch from '/src/components/blog/FindMeSearch.vue'
 import ExploreMyWork from '/src/components/blog/ExploreMyWork.vue'
+import PlaySearchPhone from '/src/components/blog/PlaySearchPhone.vue'
+import SharePreview from '/src/components/blog/SharePreview.vue'
+import ContactCard from '/src/components/blog/ContactCard.vue'
 </script>
 
 You remember a name. Maybe an Android app. Maybe a conversation about Jetpack Compose. But you don't have the link.
@@ -31,6 +34,10 @@ These are **illustrated search previews**, not screenshots of Google results or 
 If you remember my name and what I build, start here. My [About page](/about) covers my skills and experience, while the [project collection](/projects) gives you the apps themselves.
 
 My work includes dialers, SMS messengers, galleries and productivity tools. Open a project to move beyond a name and an icon: each case study explains what the app does and some of the engineering behind it.
+
+Or browse them the way you'd browse a store: the phone below lists every app that is live on Google Play.
+
+<PlaySearchPhone />
 
 ## “Ravi Sorathiya Jetpack Compose”: Messages and Gallery Pro
 
@@ -58,6 +65,16 @@ Not sure which app to open first? Choose what interests you. This little explore
 - **Read how things work:** explore [developer notes](/blog).
 - **Talk about an Android project:** use my [contact page](/contact).
 
-You can also skip search entirely and bookmark [ravisorathiya.github.io](https://ravisorathiya.github.io/).
+## Passing it on
+
+Sometimes you find me for someone else. Every page on this site has its own title, summary and share image, so a link explains itself when you paste it into a chat.
+
+<SharePreview />
+
+## Keep my card
+
+You can also skip search entirely and bookmark [ravisorathiya.github.io](https://ravisorathiya.github.io/). Or keep the card: flip it for every way to reach me.
+
+<ContactCard />
 
 A name gets you started. A skill adds context. The projects tell the rest of the story.

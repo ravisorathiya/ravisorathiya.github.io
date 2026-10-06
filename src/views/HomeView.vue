@@ -22,7 +22,9 @@ useSeo({
       '@type': 'WebSite',
       '@id': `${SITE_URL}/#website`,
       url: `${SITE_URL}/`,
-      name: `${profile.name} — Portfolio`,
+      // Google's "site name" in results: keep it the plain name people search for.
+      name: profile.name,
+      alternateName: [`${profile.name} — Portfolio`, new URL(SITE_URL).host],
       publisher: { '@id': personSchema['@id'] },
     },
   ],

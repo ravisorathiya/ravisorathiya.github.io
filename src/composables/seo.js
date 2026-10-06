@@ -13,7 +13,10 @@ export const personSchema = {
   '@type': 'Person',
   '@id': `${SITE_URL}/#person`,
   name: profile.name,
+  // Handles people may search for; helps Google tie every profile to one person.
+  alternateName: [...new Set(socials.map((s) => new URL(s.url).pathname.split('/').filter(Boolean)[0]))],
   jobTitle: profile.role,
+  homeLocation: { '@type': 'Country', name: profile.location },
   url: `${SITE_URL}/`,
   image: DEFAULT_IMAGE,
   description: profile.shortBio,
