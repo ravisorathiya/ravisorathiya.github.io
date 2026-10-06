@@ -4,7 +4,7 @@ description: "Explore Ravi Sorathiya's Android work with Kotlin and Jetpack Comp
 date: 2026-10-06
 tags: ["Android", "Jetpack Compose", "Kotlin", "Portfolio"]
 relatedProjects: ["messages-compose", "gallery-pro", "pdf-reader"]
-draft: true
+draft: false
 ---
 
 <script setup>
