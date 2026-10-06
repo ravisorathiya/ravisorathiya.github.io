@@ -175,6 +175,7 @@ Newest first. Record decisions that a future agent might otherwise undo.
 
 | Date | Decision |
 | --- | --- |
+| 2026-10-06 | Search (`src/utils/search.js`) also indexes every `##` section of posts and case studies (results deep-link to `#anchor`, using the same slug rule as markdown-it-anchor) and the real About/Contact/Home text. It also applies domain synonyms (exact-match only, weighted 0.35) and light plural stemming. The palette shows a "Sections" group with highlighted matches. |
 | 2026-10-06 | SEO goal is to rank first for name searches ("ravi sorathiya" + android/kotlin/compose). WebSite schema `name` is the plain name (Google site name), and Person schema carries `alternateName` (social handles) and `homeLocation`. Don't rename these back to "… — Portfolio". |
 | 2026-10-06 | Socials are GitHub, X and Instagram. Crypto tips go through a Binance Pay **Support** dialog (`SupportDialog.vue`) opened from the Contact page and the footer, with no dedicated page. Its QR is cropped to `public/images/support/binance-pay.webp`. |
 | 2026-10-05 | Site moved to the `ravisorathiya` GitHub account: repo `ravisorathiya/ravisorathiya.github.io`, live at https://ravisorathiya.github.io/ (old ravioriginfo.github.io URL retired). |

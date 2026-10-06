@@ -13,6 +13,9 @@ import ExploreMyWork from '/src/components/blog/ExploreMyWork.vue'
 import PlaySearchPhone from '/src/components/blog/PlaySearchPhone.vue'
 import SharePreview from '/src/components/blog/SharePreview.vue'
 import ContactCard from '/src/components/blog/ContactCard.vue'
+import SkillMap from '/src/components/blog/SkillMap.vue'
+import AppFinder from '/src/components/blog/AppFinder.vue'
+import ShortcutKeys from '/src/components/blog/ShortcutKeys.vue'
 </script>
 
 You remember a name. Maybe an Android app. Maybe a conversation about Jetpack Compose. But you don't have the link.
@@ -28,6 +31,10 @@ Pick a query below, or type your own: the preview switches to the part of my sit
 These are **illustrated search previews**, not screenshots of Google results or measured search traffic.
 
 <FindMeSearch />
+
+Already on the site? Then you don't need Google at all. The built-in search goes all the way down to individual sections of every article and case study.
+
+<ShortcutKeys />
 
 ## “Ravi Sorathiya Android”: meet the developer
 
@@ -47,6 +54,10 @@ Two places to begin are [Messages](/projects/messages-compose), an SMS and MMS a
 
 I like that a portfolio can answer the next question, too: after “Do you work with Compose?” comes “What have you built with it?” These pages are where I put that context.
 
+The same goes for the rest of the stack. Pick a skill to see exactly which apps use it, straight from each project's tech list:
+
+<SkillMap />
+
 ## “Ravi Sorathiya Kotlin”: native Android and a PDF editor
 
 For a broader look at my Android work, try **Kotlin** alongside my name. Start with [my skills and experience](/about), then visit [Dev Notes](/blog) for a closer look at implementation choices.
@@ -57,7 +68,11 @@ If that is the work you remember, `ravi sorathiya pdf editor` is another query t
 
 ## Found me? Here is where to go next
 
-Not sure which app to open first? Choose what interests you. This little explorer pairs a project with a technical article, so you can move from what it does to how it works.
+Here for an app rather than the code? Two taps will point you to one:
+
+<AppFinder />
+
+Curious about the engineering instead? Choose what interests you. This little explorer pairs a project with a technical article, so you can move from what it does to how it works.
 
 <ExploreMyWork />
 

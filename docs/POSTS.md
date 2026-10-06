@@ -45,7 +45,7 @@ Claude researches the real source code, writes the article as a draft, adds it t
 
 Newest first. One line per change.
 
-- **2026-10-06:** Drafted "Ravi Sorathiya: Android developer, Kotlin & Jetpack Compose" with 2 interactive components: `FindMeSearch` (a Google-style results mockup with a typing query, free-text matching, All/Apps/Articles tabs and a knowledge panel) and `ExploreMyWork` (interest → app → article explorer). Both read titles and icons from `content/`.
+- **2026-10-06:** Drafted "Ravi Sorathiya: Android developer, Kotlin & Jetpack Compose" with 2 interactive components: `FindMeSearch` (a Google-style results mockup with a typing query, free-text matching, All/Apps/Articles tabs and a knowledge panel) and `ExploreMyWork` (interest → app → article explorer). Later the same day it gained `PlaySearchPhone`, `SharePreview`, `ContactCard`, `SkillMap`, `AppFinder` and `ShortcutKeys`, all driven by real `content/` data.
 - **2026-10-05:** Published "How I shaped AI to fit my Android development workflow" (owner approved).
 - **2026-10-05:** Drafted "How I shaped AI to fit my Android development workflow" (from `development/ongoing/PDFReaderOrigin` `:ai` module + personal Claude skills), with 4 interactive Vue components in `src/components/blog/`.
 - **2026-10-02:** Published all 3 articles (owner approved).

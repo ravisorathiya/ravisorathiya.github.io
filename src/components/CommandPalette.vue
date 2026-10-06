@@ -5,7 +5,7 @@ import { onKeyStroke, useScrollLock, watchDebounced } from '@vueuse/core'
 import { nav, posts, projects } from '../data/portfolio'
 import AppIcon from './AppIcon.vue'
 import StatusBadge from './StatusBadge.vue'
-import { preloadSearch, search } from '../utils/search'
+import { highlight, preloadSearch, search } from '../utils/search'
 
 const open = defineModel({ type: Boolean, default: false })
 const router = useRouter()
@@ -18,6 +18,7 @@ const GROUPS = [
   { kind: 'page', label: 'Pages' },
   { kind: 'app', label: 'Apps' },
   { kind: 'post', label: 'Articles' },
+  { kind: 'section', label: 'Sections' },
 ]
 const projectBySlug = new Map(projects.map((p) => [p.slug, p]))
 const postBySlug = new Map(posts.map((p) => [p.slug, p]))
@@ -29,6 +30,7 @@ function decorate(r) {
     return { ...r, icon: p?.icon, status: p?.status, hint: r.snippet || p?.type }
   }
   if (r.kind === 'post') return { ...r, hint: r.snippet || postBySlug.get(r.slug)?.description, icon: null }
+  if (r.kind === 'section') return { ...r, hint: r.snippet, icon: r.parent === 'app' ? projectBySlug.get(r.slug)?.icon : null }
   return { ...r, hint: 'Page' }
 }
 
@@ -161,11 +163,16 @@ function onKey(e) {
                   >
                     <img v-if="r.icon" :src="r.icon" alt="" class="size-8 shrink-0 rounded-lg" />
                     <span v-else class="grid size-8 shrink-0 place-items-center rounded-lg bg-slate-100 text-slate-500 dark:bg-slate-800">
-                      <AppIcon :name="r.kind === 'post' ? 'layers' : 'arrow'" class="size-4" />
+                      <AppIcon :name="r.kind === 'post' ? 'layers' : r.kind === 'section' ? 'menu' : 'arrow'" class="size-4" />
                     </span>
                     <span class="min-w-0 flex-1">
-                      <span class="block truncate font-medium text-slate-900 dark:text-white">{{ r.title }}</span>
-                      <span class="block truncate text-xs text-slate-500">{{ r.hint }}</span>
+                      <span v-if="r.parentTitle" class="block truncate text-[11px] text-slate-400">{{ r.parentTitle }} ›</span>
+                      <span class="block truncate font-medium text-slate-900 dark:text-white">
+                        <template v-for="(part, i) in highlight(r.title, r.terms)" :key="i"><mark v-if="part.match" class="rounded-sm bg-brand-500/20 text-inherit">{{ part.text }}</mark><template v-else>{{ part.text }}</template></template>
+                      </span>
+                      <span class="block truncate text-xs text-slate-500">
+                        <template v-for="(part, i) in highlight(r.hint, r.terms)" :key="i"><mark v-if="part.match" class="rounded-sm bg-brand-500/15 font-medium text-slate-700 dark:text-slate-200">{{ part.text }}</mark><template v-else>{{ part.text }}</template></template>
+                      </span>
                     </span>
                     <StatusBadge v-if="r.status" :status="r.status" />
                   </button>
