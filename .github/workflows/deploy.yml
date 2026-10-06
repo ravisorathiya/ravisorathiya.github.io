@@ -26,6 +26,7 @@ jobs:
       - run: npm ci
       - run: npm run check   # PROJECTS.md registry ↔ portfolio.js must agree
       - run: npm run build
+      - run: echo "${{ github.sha }}" > dist/version.txt   # lets scripts/deploy.mjs confirm what is live
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

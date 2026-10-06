@@ -78,21 +78,52 @@ if (flags.has('--no-wait')) {
 
 // ── 5. Wait for the deploy ───────────────────────────────
 step(5, 'Waiting for the GitHub Actions deploy (usually 1–3 minutes)')
+// The source of truth is the live site: the workflow writes the deployed commit to /version.txt.
+// The GitHub API is only used to report a failed run early; unauthenticated it allows 60 calls/hour,
+// so set GH_TOKEN to raise that, and on a rate limit we simply stop asking.
 const api = `https://api.github.com/repos/${REPO}/actions/runs?head_sha=${sha}&per_page=1`
+const token = process.env.GH_TOKEN || process.env.GITHUB_TOKEN
+const headers = { Accept: 'application/vnd.github+json', ...(token && { Authorization: `Bearer ${token}` }) }
+const isLive = (liveSha) => {
+  if (!/^[0-9a-f]{40}$/.test(liveSha)) return false
+  if (liveSha === sha) return true
+  try {
+    // A newer push (which cancels this run) still contains our commit.
+    execSync(`git merge-base --is-ancestor ${sha} ${liveSha}`, { stdio: 'ignore' })
+    return true
+  } catch {
+    return false
+  }
+}
+let useApi = true
 let runInfo
+let deployed = false
 const deadline = Date.now() + 15 * 60 * 1000
 while (Date.now() < deadline) {
-  runInfo = await fetch(api, { headers: { Accept: 'application/vnd.github+json' } })
-    .then((r) => r.json())
-    .then((j) => j.workflow_runs?.[0])
-    .catch(() => null)
-  if (runInfo?.status === 'completed') break
-  process.stdout.write(runInfo ? `   ${runInfo.status}…\r` : '   waiting for the run to start…\r')
+  const liveSha = await fetch(`${SITE}version.txt?t=${Date.now()}`, { cache: 'no-store' })
+    .then((r) => (r.ok ? r.text() : ''))
+    .then((t) => t.trim())
+    .catch(() => '')
+  if (isLive(liveSha)) {
+    deployed = true
+    break
+  }
+  if (useApi) {
+    const res = await fetch(api, { headers }).catch(() => null)
+    if (res?.status === 403 || res?.status === 429) {
+      useApi = false
+      console.log('\n   GitHub API rate limit reached; watching the live site instead.')
+    } else {
+      runInfo = await res?.json().then((j) => j.workflow_runs?.[0]).catch(() => null)
+      if (runInfo?.status === 'completed' && runInfo.conclusion !== 'success' && runInfo.conclusion !== 'cancelled')
+        fail(`Deploy ${runInfo.conclusion}. Details: ${runInfo.html_url}`)
+    }
+  }
+  process.stdout.write(runInfo ? `   ${runInfo.status}…\r` : '   waiting for the new version to go live…\r')
   await sleep(15000)
 }
-if (!runInfo || runInfo.status !== 'completed') fail(`Timed out waiting. Check: https://github.com/${REPO}/actions`)
-if (runInfo.conclusion !== 'success') fail(`Deploy ${runInfo.conclusion}. Details: ${runInfo.html_url}`)
-console.log('   ✓ deploy succeeded            ')
+if (!deployed) fail(`Timed out waiting. Check: https://github.com/${REPO}/actions`)
+console.log('   ✓ deploy succeeded                        ')
 
 // ── 6. Verify the live site ──────────────────────────────
 step(6, 'Checking the live site')
