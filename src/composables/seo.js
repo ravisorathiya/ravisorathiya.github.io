@@ -5,6 +5,10 @@ import { experience, posts, profile, SITE_URL, socials } from '../data/portfolio
 // Generated at build time by scripts/og.mjs.
 const DEFAULT_IMAGE = `${SITE_URL}/og/default.png`
 
+// "@handle" from the X profile URL, for twitter:site / twitter:creator.
+const xUrl = socials.find((s) => s.icon === 'x')?.url
+const xHandle = xUrl ? '@' + new URL(xUrl).pathname.split('/').filter(Boolean)[0] : null
+
 export const personSchema = {
   '@type': 'Person',
   '@id': `${SITE_URL}/#person`,
@@ -42,6 +46,8 @@ export function useSeo({ title, description, path = '/', image, type = 'website'
       ...(posts.some((p) => !p.draft)
         ? [{ rel: 'alternate', type: 'application/rss+xml', title: `${profile.name} — Dev Notes`, href: `${SITE_URL}/blog/rss.xml` }]
         : []),
+      // Identity links: tell crawlers these profiles belong to the site owner.
+      ...socials.map((s) => ({ rel: 'me', href: s.url })),
     ],
     meta: [
       { name: 'description', content: desc },
@@ -60,6 +66,7 @@ export function useSeo({ title, description, path = '/', image, type = 'website'
       { name: 'twitter:title', content: fullTitle },
       { name: 'twitter:description', content: desc },
       { name: 'twitter:image', content: img },
+      ...(xHandle ? [{ name: 'twitter:site', content: xHandle }, { name: 'twitter:creator', content: xHandle }] : []),
       ...(publishedTime ? [{ property: 'article:published_time', content: publishedTime }, { property: 'article:author', content: profile.name }] : []),
     ],
     script: jsonLd

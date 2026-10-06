@@ -4,12 +4,13 @@ import { profile, socials, support } from '../data/portfolio'
 import AppIcon from '../components/AppIcon.vue'
 import SectionHeading from '../components/SectionHeading.vue'
 import SupportDialog from '../components/SupportDialog.vue'
-import { useSeo } from '../composables/seo'
+import { personSchema, useSeo } from '../composables/seo'
 
 useSeo({
   title: 'Contact — Hire an Android Developer',
-  description: 'Get in touch with Ravi Sorathiya for Android app development in Kotlin and Jetpack Compose.',
+  description: 'Get in touch with Ravi Sorathiya for Android app development in Kotlin and Jetpack Compose — by email, on X or Instagram.',
   path: '/contact',
+  jsonLd: [{ '@type': 'ContactPage', mainEntity: personSchema }],
 })
 
 // GitHub Pages is static, so the form opens the visitor's mail client.
@@ -55,7 +56,7 @@ const input =
             :key="s.name"
             :href="s.url"
             target="_blank"
-            rel="noopener"
+            rel="me noopener"
             :aria-label="s.name"
             :title="s.name"
             class="grid size-11 place-items-center rounded-lg border border-slate-200 text-slate-600 transition hover:border-brand-500 hover:text-brand-600 dark:border-slate-800 dark:text-slate-400 dark:hover:text-brand-400"

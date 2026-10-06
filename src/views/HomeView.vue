@@ -75,7 +75,7 @@ const heroIcons = projects.filter((p) => p.icon && p.status === 'live').slice(0,
               :key="s.name"
               :href="s.url"
               target="_blank"
-              rel="noopener"
+              rel="me noopener"
               :aria-label="s.name"
               :title="s.name"
               class="grid size-10 place-items-center rounded-lg border border-slate-200 text-slate-600 transition hover:border-brand-500 hover:text-brand-600 dark:border-slate-800 dark:text-slate-400 dark:hover:text-brand-400"
