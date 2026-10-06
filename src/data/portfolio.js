@@ -32,8 +32,16 @@ export const profile = {
 export const socials = [
   { name: 'GitHub', url: 'https://github.com/ravisorathiya', icon: 'github' },
   // { name: 'LinkedIn', url: 'https://www.linkedin.com/in/your-username', icon: 'linkedin' },
-  // { name: 'X', url: 'https://x.com/your-username', icon: 'x' },
+  { name: 'X', url: 'https://x.com/ravi__sorathiya', icon: 'x' },
+  { name: 'Instagram', url: 'https://www.instagram.com/ll_ravi_sorathiya_ll/', icon: 'instagram' },
 ]
+
+// Crypto tips, shown in the Support dialog (Contact page + footer).
+export const support = {
+  label: 'Binance Pay',
+  payId: 'ravisorathiya',
+  qr: '/images/support/binance-pay.webp',
+}
 
 export const skills = [
   { group: 'Languages', items: ['Kotlin', 'Java', 'JavaScript', 'SQL'] },

@@ -175,6 +175,7 @@ Newest first. Record decisions that a future agent might otherwise undo.
 
 | Date | Decision |
 | --- | --- |
+| 2026-10-06 | Socials are GitHub, X and Instagram. Crypto tips go through a Binance Pay **Support** dialog (`SupportDialog.vue`) opened from the Contact page and the footer, with no dedicated page. Its QR is cropped to `public/images/support/binance-pay.webp`. |
 | 2026-10-05 | Site moved to the `ravisorathiya` GitHub account: repo `ravisorathiya/ravisorathiya.github.io`, live at https://ravisorathiya.github.io/ (old ravioriginfo.github.io URL retired). |
 | 2026-10-05 | Site-wide animated galaxy background (`StarField.vue`, canvas): parallax stars, cursor constellations, shooting stars; paused when hidden, static under reduced motion. |
 | 2026-10-05 | Google Search Console verified via HTML file `public/google4041c6d8e2b20818.html` (never delete it, or verification is lost). |

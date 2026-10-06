@@ -1,8 +1,9 @@
 <script setup>
-import { reactive } from 'vue'
-import { profile, socials } from '../data/portfolio'
+import { reactive, ref } from 'vue'
+import { profile, socials, support } from '../data/portfolio'
 import AppIcon from '../components/AppIcon.vue'
 import SectionHeading from '../components/SectionHeading.vue'
+import SupportDialog from '../components/SupportDialog.vue'
 import { useSeo } from '../composables/seo'
 
 useSeo({
@@ -14,6 +15,7 @@ useSeo({
 // GitHub Pages is static, so the form opens the visitor's mail client.
 // To receive submissions directly, swap this for a service like Formspree.
 const form = reactive({ name: '', email: '', message: '' })
+const supportOpen = ref(false)
 
 function send() {
   const subject = encodeURIComponent(`Portfolio contact from ${form.name}`)
@@ -55,11 +57,27 @@ const input =
             target="_blank"
             rel="noopener"
             :aria-label="s.name"
+            :title="s.name"
             class="grid size-11 place-items-center rounded-lg border border-slate-200 text-slate-600 transition hover:border-brand-500 hover:text-brand-600 dark:border-slate-800 dark:text-slate-400 dark:hover:text-brand-400"
           >
             <AppIcon :name="s.icon" class="size-5" />
           </a>
         </div>
+
+        <button
+          class="card group mt-8 flex w-full items-center gap-4 p-5 text-left transition hover:border-amber-400"
+          @click="supportOpen = true"
+        >
+          <span class="grid size-11 shrink-0 place-items-center rounded-lg bg-amber-400/15 text-amber-500">
+            <AppIcon name="heart" class="size-5" />
+          </span>
+          <span class="min-w-0 flex-1">
+            <span class="block font-medium text-slate-900 dark:text-white">Support my work</span>
+            <span class="block text-sm text-slate-500">Tip in crypto via {{ support.label }} · scan a QR</span>
+          </span>
+          <AppIcon name="arrow" class="size-4 text-slate-400 transition group-hover:translate-x-0.5 group-hover:text-amber-500" />
+        </button>
+        <SupportDialog v-model="supportOpen" />
       </div>
 
       <form class="card space-y-5 p-6 sm:p-8" @submit.prevent="send">
