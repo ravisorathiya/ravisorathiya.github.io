@@ -18,7 +18,7 @@ const progress = computed(() => {
 </script>
 
 <template>
-  <div class="flex min-h-screen flex-col pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:pb-0">
+  <div class="flex min-h-screen flex-col">
     <StarField />
     <div
       class="bg-brand-gradient fixed top-0 left-0 z-50 h-0.5 w-full origin-left"
@@ -34,6 +34,8 @@ const progress = computed(() => {
       </RouterView>
     </main>
     <SiteFooter />
+    <!-- Mobile spacer so the floating bottom tab bar never covers the footer. -->
+    <div class="h-24 md:hidden" aria-hidden="true" />
     <BottomTabBar />
     <CommandPalette v-model="paletteOpen" />
   </div>
