@@ -138,17 +138,17 @@ watch(compact, () => setTimeout(place, 320))
 </template>
 
 <style scoped>
-/* Clear, neutral glass: the page shows through, tinted only by the blur. */
+/* Clear glass: light blur only, so the galaxy background still shows through. */
 .glass {
   touch-action: none;
   user-select: none;
   -webkit-user-select: none;
-  background: rgb(250 250 252 / 0.55);
-  backdrop-filter: blur(24px) saturate(180%) brightness(1.04);
-  -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.04);
-  border: 0.5px solid rgb(255 255 255 / 0.7);
+  background: rgb(255 255 255 / 0.08);
+  backdrop-filter: blur(5px) saturate(170%);
+  -webkit-backdrop-filter: blur(5px) saturate(170%);
+  border: 1px solid rgb(255 255 255 / 0.35);
   box-shadow:
-    inset 0 1px 1px rgb(255 255 255 / 0.9),
+    inset 0 1px 1px rgb(255 255 255 / 0.55),
     inset 0 -1px 2px rgb(0 0 0 / 0.04),
     0 8px 28px -6px rgb(0 0 0 / 0.18),
     0 1px 3px rgb(0 0 0 / 0.06);
@@ -160,12 +160,12 @@ watch(compact, () => setTimeout(place, 320))
   inset: 0;
   border-radius: inherit;
   pointer-events: none;
-  background: linear-gradient(180deg, rgb(255 255 255 / 0.45), transparent 50%);
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.18), transparent 45%);
 }
 :global(.dark) .glass {
-  background: rgb(28 28 32 / 0.55);
-  backdrop-filter: blur(24px) saturate(160%);
-  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  background: rgb(15 23 42 / 0.18);
+  backdrop-filter: blur(5px) saturate(160%);
+  -webkit-backdrop-filter: blur(5px) saturate(160%);
   border-color: rgb(255 255 255 / 0.14);
   box-shadow:
     inset 0 1px 1px rgb(255 255 255 / 0.12),
@@ -217,13 +217,13 @@ watch(compact, () => setTimeout(place, 320))
 .dragging .blob { transition: width 0.2s ease; }
 .dragging .drop {
   transform: scale(1.18, 1.28);
-  background: rgb(255 255 255 / 0.35);
+  background: rgb(255 255 255 / 0.1);
   box-shadow:
-    inset 0 1px 1px rgb(255 255 255 / 0.95),
+    inset 0 1px 1px rgb(255 255 255 / 0.7),
     inset 0 -1px 2px rgb(0 0 0 / 0.08),
     0 6px 18px -4px rgb(0 0 0 / 0.25);
-  backdrop-filter: blur(2px) saturate(200%) brightness(1.08);
-  -webkit-backdrop-filter: blur(2px) saturate(200%) brightness(1.08);
+  backdrop-filter: saturate(200%);
+  -webkit-backdrop-filter: saturate(200%);
 }
 :global(.dark) .dragging .drop {
   background: rgb(255 255 255 / 0.16);
