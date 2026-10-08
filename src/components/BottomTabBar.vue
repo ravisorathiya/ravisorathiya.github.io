@@ -162,7 +162,7 @@ watch(compact, () => setTimeout(place, 320))
   pointer-events: none;
   background: linear-gradient(180deg, rgb(255 255 255 / 0.18), transparent 45%);
 }
-:global(.dark) .glass {
+.dark .glass {
   background: rgb(8 12 24 / 0.6);
   backdrop-filter: blur(16px) saturate(170%);
   -webkit-backdrop-filter: blur(16px) saturate(170%);
@@ -171,7 +171,7 @@ watch(compact, () => setTimeout(place, 320))
     inset 0 1px 1px rgb(255 255 255 / 0.12),
     0 10px 30px -6px rgb(0 0 0 / 0.65);
 }
-:global(.dark) .glass::before {
+.dark .glass::before {
   background: linear-gradient(180deg, rgb(255 255 255 / 0.08), transparent 50%);
 }
 
@@ -184,9 +184,9 @@ watch(compact, () => setTimeout(place, 320))
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
 }
-:global(.dark) .tab { color: rgb(226 232 240); } /* slate-200 */
+.dark .tab { color: rgb(226 232 240); } /* slate-200 */
 .tab.on { color: var(--color-brand-600); }
-:global(.dark) .tab.on { color: var(--color-brand-400); }
+.dark .tab.on { color: var(--color-brand-400); }
 .tab:active { transform: scale(0.92); }
 .dragging .tab:active { transform: none; }
 .icon { width: 1.4rem; height: 1.4rem; transition: transform 0.3s ease; }
@@ -209,7 +209,7 @@ watch(compact, () => setTimeout(place, 320))
   animation: morph 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
   transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s ease, box-shadow 0.2s ease;
 }
-:global(.dark) .drop {
+.dark .drop {
   background: rgb(52 211 153 / 0.18);
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.2), inset 0 0 0 1px rgb(52 211 153 / 0.25);
 }
@@ -225,7 +225,7 @@ watch(compact, () => setTimeout(place, 320))
   backdrop-filter: saturate(200%);
   -webkit-backdrop-filter: saturate(200%);
 }
-:global(.dark) .dragging .drop {
+.dark .dragging .drop {
   background: rgb(255 255 255 / 0.16);
   box-shadow:
     inset 0 1px 1px rgb(255 255 255 / 0.35),
