@@ -111,10 +111,10 @@ export const stats = [
 ]
 
 export const nav = [
-  { label: 'Home', to: '/' },
-  { label: 'About', to: '/about' },
-  { label: 'Projects', to: '/projects' },
+  { label: 'Home', to: '/', icon: 'home' },
+  { label: 'About', to: '/about', icon: 'user' },
+  { label: 'Projects', to: '/projects', icon: 'grid' },
   // Blog appears once there is at least one post (drafts count in local dev).
-  ...(posts.length ? [{ label: 'Blog', to: '/blog' }] : []),
-  { label: 'Contact', to: '/contact' },
+  ...(posts.length ? [{ label: 'Blog', to: '/blog', icon: 'pen' }] : []),
+  { label: 'Contact', to: '/contact', icon: 'mail' },
 ]
