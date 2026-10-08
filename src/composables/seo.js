@@ -18,7 +18,7 @@ export const personSchema = {
   jobTitle: profile.role,
   homeLocation: { '@type': 'Country', name: profile.location },
   url: `${SITE_URL}/`,
-  image: DEFAULT_IMAGE,
+  image: profile.avatar ? `${SITE_URL}${profile.avatar}` : DEFAULT_IMAGE,
   description: profile.shortBio,
   email: `mailto:${profile.email}`,
   worksFor: experience.filter((e) => !e.end).map((e) => ({ '@type': 'Organization', name: e.company })),

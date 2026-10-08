@@ -19,7 +19,7 @@ export const profile = {
   email: 'ravisorathiya1756@gmail.com',
   resumeUrl: '', // e.g. '/resume.pdf' after adding the file to /public
   availableForWork: true,
-  avatar: '', // e.g. '/images/avatar.jpg' — leave empty to show initials
+  avatar: '/images/avatar.webp', // from the X profile picture; '' shows initials instead
   shortBio:
     `Android developer working in Kotlin and Jetpack Compose. I have shipped ${liveCount} apps to Google Play — from default dialers and SMS clients that take over core phone roles, to media galleries and productivity tools.`,
   bio: [

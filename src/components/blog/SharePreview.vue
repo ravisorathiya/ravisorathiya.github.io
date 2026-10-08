@@ -120,7 +120,8 @@ async function copy() {
         <!-- X -->
         <div v-if="platform === 'x'" :key="'x' + pageIndex" class="bg-white p-5 sm:p-6 dark:bg-black">
           <div class="mx-auto flex max-w-lg gap-3">
-            <span class="grid size-10 shrink-0 place-items-center rounded-full bg-brand-gradient text-xs font-bold text-white">RS</span>
+            <img v-if="profile.avatar" :src="profile.avatar" alt="" width="40" height="40" class="size-10 shrink-0 rounded-full object-cover" />
+            <span v-else class="grid size-10 shrink-0 place-items-center rounded-full bg-brand-gradient text-xs font-bold text-white">RS</span>
             <div class="min-w-0 flex-1">
               <p class="text-sm">
                 <span class="font-bold text-slate-900 dark:text-[#e7e9ea]">{{ profile.name }}</span>
@@ -170,7 +171,8 @@ async function copy() {
         <!-- Slack-style unfurl -->
         <div v-else :key="'s' + pageIndex" class="bg-white p-5 sm:p-6 dark:bg-[#1a1d21]">
           <div class="mx-auto flex max-w-lg gap-3">
-            <span class="grid size-9 shrink-0 place-items-center rounded-lg bg-brand-gradient text-xs font-bold text-white">RS</span>
+            <img v-if="profile.avatar" :src="profile.avatar" alt="" width="36" height="36" class="size-9 shrink-0 rounded-lg object-cover" />
+            <span v-else class="grid size-9 shrink-0 place-items-center rounded-lg bg-brand-gradient text-xs font-bold text-white">RS</span>
             <div class="min-w-0 flex-1">
               <p class="text-sm">
                 <span class="font-bold text-slate-900 dark:text-[#d1d2d3]">{{ profile.name }}</span>

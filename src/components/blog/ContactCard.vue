@@ -3,6 +3,7 @@ import { computed, reactive, ref } from 'vue'
 import { usePreferredReducedMotion } from '@vueuse/core'
 import { liveCount, profile, SITE_URL, socials } from '../../data/portfolio'
 import AppIcon from '../AppIcon.vue'
+import Avatar3D from '../Avatar3D.vue'
 
 // A 3D business card that tilts toward the pointer and flips to show every way to reach me
 // (blog: find-ravi-sorathiya-android-developer).
@@ -35,6 +36,8 @@ function reset() {
 const cardStyle = computed(() => ({
   transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y + (flipped.value ? 180 : 0)}deg)`,
 }))
+// The face turns further than the card, so it keeps looking at the cursor.
+const faceTilt = computed(() => ({ x: tilt.x * 1.6, y: tilt.y * 1.6 }))
 const glare = computed(() => ({
   background: `radial-gradient(circle at ${tilt.gx}% ${tilt.gy}%, rgba(255,255,255,0.28), transparent 55%)`,
 }))
@@ -75,7 +78,7 @@ async function copySite(e) {
 
           <div class="relative flex h-full flex-col justify-between">
             <div class="flex items-start justify-between">
-              <span class="grid size-12 place-items-center rounded-2xl bg-brand-gradient text-lg font-extrabold shadow-lg shadow-brand-500/30">RS</span>
+              <Avatar3D size="sm" :interactive="false" :tilt="faceTilt" class="!mx-0" />
               <span class="flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-2.5 py-1 text-[11px] text-white/80 backdrop-blur">
                 <span class="size-1.5 animate-pulse rounded-full bg-brand-400" /> {{ liveCount }} apps live
               </span>

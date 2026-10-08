@@ -205,6 +205,7 @@ onBeforeUnmount(() => {
             <RouterLink :to="r.to" class="group block">
               <span class="flex items-center gap-2.5">
                 <img v-if="r.icon" :src="r.icon" alt="" width="28" height="28" class="size-7 shrink-0 rounded-full border border-slate-200 dark:border-[#3c4043]" />
+                <img v-else-if="profile.avatar" :src="profile.avatar" alt="" width="28" height="28" class="size-7 shrink-0 rounded-full object-cover" />
                 <span v-else class="grid size-7 shrink-0 place-items-center rounded-full bg-brand-gradient text-[10px] font-bold text-white">RS</span>
                 <span class="min-w-0 leading-tight">
                   <span class="block text-sm text-slate-800 dark:text-[#dadce0]">Ravi Sorathiya</span>
@@ -249,7 +250,8 @@ onBeforeUnmount(() => {
       <!-- Knowledge panel -->
       <aside class="h-fit rounded-xl border border-slate-200 p-4 dark:border-[#3c4043]">
         <div class="flex items-center gap-3">
-          <span class="grid size-14 shrink-0 place-items-center rounded-full bg-brand-gradient text-lg font-bold text-white">RS</span>
+          <img v-if="profile.avatar" :src="profile.avatar" alt="" width="56" height="56" class="size-14 shrink-0 rounded-full object-cover" />
+          <span v-else class="grid size-14 shrink-0 place-items-center rounded-full bg-brand-gradient text-lg font-bold text-white">RS</span>
           <span>
             <span class="block text-xl leading-tight text-slate-900 dark:text-[#e8eaed]">{{ profile.name }}</span>
             <span class="block text-sm text-slate-500 dark:text-[#9aa0a6]">{{ profile.role }}</span>

@@ -194,3 +194,4 @@ Newest first. Record decisions that a future agent might otherwise undo.
 | 2026-10-02 | Green gradient theme replaced indigo/violet (owner preference). |
 | 2026-10-02 | Variant folders of one product are grouped into one entry. |
 | 2026-10-02 | Google Play links are shown publicly (owner approved); no source code, keys or ad IDs are ever published. |
+| 2026-10-08 | Profile photo (`public/images/avatar.webp`, from the X profile picture) replaces the "RS" initials. It is shown as a CSS-3D `Avatar3D` (follows the cursor, drag/click to spin 360°, orbiting socials) on Home, Contact and the blog ContactCard, and statically in the blog mockups. No three.js. |

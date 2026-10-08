@@ -1,6 +1,6 @@
 <script setup>
 import { computed, ref } from 'vue'
-import { projects } from '../../data/portfolio'
+import { profile, projects } from '../../data/portfolio'
 import AppIcon from '../AppIcon.vue'
 
 // A store-style phone search over the live apps (blog: find-ravi-sorathiya-android-developer).
@@ -62,7 +62,8 @@ const shown = computed(() => {
                 <button v-if="query" type="button" aria-label="Clear search" class="text-slate-400" @click="query = ''">
                   <AppIcon name="close" class="size-3.5" />
                 </button>
-                <span class="grid size-6 shrink-0 place-items-center rounded-full bg-brand-gradient text-[9px] font-bold text-white" aria-hidden="true">RS</span>
+                <img v-if="profile.avatar" :src="profile.avatar" alt="" width="24" height="24" class="size-6 shrink-0 rounded-full object-cover" aria-hidden="true" />
+                <span v-else class="grid size-6 shrink-0 place-items-center rounded-full bg-brand-gradient text-[9px] font-bold text-white" aria-hidden="true">RS</span>
               </label>
             </div>
 

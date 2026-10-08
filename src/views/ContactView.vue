@@ -2,6 +2,7 @@
 import { reactive, ref } from 'vue'
 import { profile, socials, support } from '../data/portfolio'
 import AppIcon from '../components/AppIcon.vue'
+import Avatar3D from '../components/Avatar3D.vue'
 import SectionHeading from '../components/SectionHeading.vue'
 import SupportDialog from '../components/SupportDialog.vue'
 import { personSchema, useSeo } from '../composables/seo'
@@ -32,6 +33,7 @@ const input =
   <div class="container-page py-16 sm:py-20">
     <div class="grid gap-12 lg:grid-cols-2">
       <div>
+        <Avatar3D size="lg" orbit class="mb-8 lg:ml-0" />
         <SectionHeading
           as="h1"
           eyebrow="// contact"

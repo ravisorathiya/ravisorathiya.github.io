@@ -1,7 +1,9 @@
 <script setup>
 import { computed } from 'vue'
+import { useMouse, usePreferredReducedMotion, useWindowSize } from '@vueuse/core'
 import { liveCount, posts, profile, projects, skills, socials, stats } from '../data/portfolio'
 import AppIcon from '../components/AppIcon.vue'
+import Avatar3D from '../components/Avatar3D.vue'
 import CountUp from '../components/CountUp.vue'
 import IconMarquee from '../components/IconMarquee.vue'
 import ProjectCard from '../components/ProjectCard.vue'
@@ -34,6 +36,18 @@ const featured = computed(() => projects.filter((p) => p.featured))
 const flagship = projects.find((p) => p.slug === 'pdf-reader')
 const topSkills = computed(() => skills.flatMap((g) => g.items).slice(0, 18))
 const heroIcons = projects.filter((p) => p.icon && p.status === 'live').slice(0, 9)
+
+// The phone leans gently toward the cursor; the avatar in front of it turns further,
+// so the two read as separate depths.
+const mouse = useMouse({ type: 'client', touch: false })
+const win = useWindowSize()
+const reduced = usePreferredReducedMotion()
+const phoneTilt = computed(() => {
+  if (reduced.value === 'reduce' || !mouse.sourceType.value) return {}
+  const x = mouse.x.value / (win.width.value || 1) - 0.5
+  const y = mouse.y.value / (win.height.value || 1) - 0.5
+  return { transform: `perspective(1200px) rotateX(${(-y * 8).toFixed(2)}deg) rotateY(${(x * 10).toFixed(2)}deg)` }
+})
 </script>
 
 <template>
@@ -88,8 +102,12 @@ const heroIcons = projects.filter((p) => p.icon && p.status === 'live').slice(0,
         </div>
 
         <!-- Phone-style icon grid -->
-        <div v-reveal="150" class="mx-auto w-full max-w-[18rem]">
-          <div class="relative rounded-[2.5rem] border-[10px] border-slate-900 bg-slate-900 shadow-2xl shadow-emerald-900/30 dark:border-slate-700">
+        <div v-reveal="150" class="relative mx-auto w-full max-w-[18rem]">
+          <Avatar3D size="md" class="absolute! -bottom-20 -left-8 z-20 sm:-left-32" />
+          <div
+            class="relative rounded-[2.5rem] border-[10px] border-slate-900 bg-slate-900 shadow-2xl shadow-emerald-900/30 transition-transform duration-300 ease-out dark:border-slate-700"
+            :style="phoneTilt"
+          >
             <div class="absolute top-2 left-1/2 z-10 h-5 w-24 -translate-x-1/2 rounded-full bg-slate-900 dark:bg-slate-700" />
             <div class="bg-brand-gradient overflow-hidden rounded-[1.8rem] px-5 pt-12 pb-8">
               <p class="text-center font-mono text-xs text-white/80">My apps on Google Play</p>
