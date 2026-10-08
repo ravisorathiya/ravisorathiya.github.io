@@ -138,14 +138,14 @@ watch(compact, () => setTimeout(place, 320))
 </template>
 
 <style scoped>
-/* Clear glass: light blur only, so the galaxy background still shows through. */
+/* Tinted glass: enough blur and tint to keep icons readable over the galaxy. */
 .glass {
   touch-action: none;
   user-select: none;
   -webkit-user-select: none;
-  background: rgb(255 255 255 / 0.08);
-  backdrop-filter: blur(5px) saturate(170%);
-  -webkit-backdrop-filter: blur(5px) saturate(170%);
+  background: rgb(241 245 249 / 0.55);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
   border: 1px solid rgb(255 255 255 / 0.35);
   box-shadow:
     inset 0 1px 1px rgb(255 255 255 / 0.55),
@@ -163,9 +163,9 @@ watch(compact, () => setTimeout(place, 320))
   background: linear-gradient(180deg, rgb(255 255 255 / 0.18), transparent 45%);
 }
 :global(.dark) .glass {
-  background: rgb(15 23 42 / 0.18);
-  backdrop-filter: blur(5px) saturate(160%);
-  -webkit-backdrop-filter: blur(5px) saturate(160%);
+  background: rgb(8 12 24 / 0.6);
+  backdrop-filter: blur(16px) saturate(170%);
+  -webkit-backdrop-filter: blur(16px) saturate(170%);
   border-color: rgb(255 255 255 / 0.14);
   box-shadow:
     inset 0 1px 1px rgb(255 255 255 / 0.12),
@@ -179,12 +179,12 @@ watch(compact, () => setTimeout(place, 320))
   width: 3.75rem;
   height: 3.25rem;
   gap: 0.25rem;
-  color: rgb(60 60 67 / 0.85); /* iOS secondary label */
+  color: rgb(51 65 85); /* slate-700 */
   transition: width 0.3s ease, height 0.3s ease, transform 0.15s ease, color 0.2s ease;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
 }
-:global(.dark) .tab { color: rgb(235 235 245 / 0.7); }
+:global(.dark) .tab { color: rgb(226 232 240); } /* slate-200 */
 .tab.on { color: var(--color-brand-600); }
 :global(.dark) .tab.on { color: var(--color-brand-400); }
 .tab:active { transform: scale(0.92); }
@@ -204,14 +204,14 @@ watch(compact, () => setTimeout(place, 320))
     width 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 .drop {
-  background: rgb(0 0 0 / 0.06);
-  box-shadow: inset 0 0.5px 0 rgb(255 255 255 / 0.6);
+  background: rgb(16 185 129 / 0.16);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.7), inset 0 0 0 1px rgb(16 185 129 / 0.18);
   animation: morph 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
   transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s ease, box-shadow 0.2s ease;
 }
 :global(.dark) .drop {
-  background: rgb(255 255 255 / 0.12);
-  box-shadow: inset 0 0.5px 0 rgb(255 255 255 / 0.25);
+  background: rgb(52 211 153 / 0.18);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.2), inset 0 0 0 1px rgb(52 211 153 / 0.25);
 }
 /* While sliding: the lens follows the finger, swells and turns to clear glass. */
 .dragging .blob { transition: width 0.2s ease; }
