@@ -100,7 +100,7 @@ export const statuses = {
 }
 
 // Projects and blog posts live in Markdown under /content (see src/content/index.js).
-export { projects, posts, types, postTags, getProject, getPost } from '../content'
+export { projects, posts, snippets, types, postTags, getProject, getPost } from '../content'
 
 export { liveCount }
 

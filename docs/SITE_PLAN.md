@@ -79,6 +79,18 @@ The file name is the slug and URL (`/projects/<slug>`). **Never rename a publish
 
 Reading time is computed automatically. The article **list** (published, drafts, ideas) is tracked in [`POSTS.md`](POSTS.md).
 
+### Code snippets: `content/snippets/<slug>.md`
+One tab of the home page's "How I build" showcase (`CodeShowcase.vue`). Schema: `snippetSchema`.
+- `title`: the tab label (≤ 30 chars)
+- `file`: the file name shown in the editor bar
+- `caption`: "why" text (≤ 140 chars)
+- `order`
+- `relatedProjects`: 1–4 existing app slugs, shown as "Used in"
+- `preview` *(optional)*: an interactive mock from `src/components/showcase/` (currently `compose-filter`)
+- `notes`: ≤ 6 `{ line, text }` items. Each `line` is a 1-based line of the code block; those lines can be tapped and stepped through.
+
+The body is **exactly one** fenced `kotlin` block, ≤ 30 lines. Snippets are **simplified samples written for the site**, inspired by patterns in the real apps, never copied source. `npm run check` validates the slugs and note line numbers and scans for secrets.
+
 ### Icon rules
 Copy the icon from the app's source, in this order of preference:
 1. `app/src/main/ic_launcher-playstore.png`
@@ -175,6 +187,7 @@ Newest first. Record decisions that a future agent might otherwise undo.
 
 | Date | Decision |
 | --- | --- |
+| 2026-10-08 | Home page gets a "How I build" code showcase after Selected work: tabs for 10 modern-Android techniques (Compose, Flow, Hilt, Clean Architecture, Room, WorkManager, Media3, CameraX, Baseline Profiles, Gradle KTS). Each tab is a Markdown snippet in `content/snippets/` with tappable line notes; the Compose tab has a clickable preview. Samples are simplified and inspired by the apps, never real source. |
 | 2026-10-08 | On mobile (< md) the hamburger menu is gone: page links live in a floating iOS-style "liquid glass" bottom tab bar (`BottomTabBar.vue`, icons from `nav[].icon`) whose glass lens springs to the active tab and can be dragged across tabs to pick a page (iOS-style), and which compacts while scrolling down. The top bar keeps logo, search and theme toggle. |
 | 2026-10-06 | Search (`src/utils/search.js`) also indexes every `##` section of posts and case studies (results deep-link to `#anchor`, using the same slug rule as markdown-it-anchor) and the real About/Contact/Home text. It also applies domain synonyms (exact-match only, weighted 0.35) and light plural stemming. The palette shows a "Sections" group with highlighted matches. |
 | 2026-10-06 | SEO goal is to rank first for name searches ("ravi sorathiya" + android/kotlin/compose). WebSite schema `name` is the plain name (Google site name), and Person schema carries `alternateName` (social handles) and `homeLocation`. Don't rename these back to "… — Portfolio". |

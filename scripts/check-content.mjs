@@ -4,7 +4,7 @@
 // files, references and secrets. Rules: docs/SITE_PLAN.md §3.
 import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { loadPosts, loadProjects, ROOT_DIR } from './content-fs.mjs'
+import { loadPosts, loadProjects, loadSnippets, ROOT_DIR } from './content-fs.mjs'
 
 const errors = []
 const warn = []
@@ -12,7 +12,8 @@ const at = (p) => join(ROOT_DIR, p)
 
 const { items: projects, errors: projectErrors } = loadProjects()
 const { items: posts, errors: postErrors } = loadPosts({ includeDrafts: true })
-errors.push(...projectErrors, ...postErrors)
+const { items: snippets, errors: snippetErrors } = loadSnippets()
+errors.push(...projectErrors, ...postErrors, ...snippetErrors)
 
 // ── Registry (docs/PROJECTS.md) ↔ content/projects ────────
 const md = readFileSync(at('docs/PROJECTS.md'), 'utf8')
@@ -53,6 +54,17 @@ for (const p of posts) {
   if (p.draft) warn.push(`blog/${p.slug}: draft (not published)`)
 }
 
+// Home-page code snippets: one Kotlin block each, notes point at real lines.
+for (const s of snippets) {
+  if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(s.slug)) errors.push(`snippets/${s.slug}: file name must be kebab-case`)
+  for (const r of s.relatedProjects) if (!bySlug.has(r)) errors.push(`snippets/${s.slug}: relatedProjects "${r}" does not exist`)
+  const blocks = [...s.body.replace(/\r\n/g, '\n').matchAll(/```kotlin\n([\s\S]*?)\n```/g)]
+  if (blocks.length !== 1) { errors.push(`snippets/${s.slug}: body must be exactly one kotlin code block`); continue }
+  const lines = blocks[0][1].split('\n').length
+  if (lines > 30) warn.push(`snippets/${s.slug}: ${lines} lines; keep snippets short (≤ 30)`)
+  for (const n of s.notes) if (n.line > lines) errors.push(`snippets/${s.slug}: note on line ${n.line} but the code has ${lines} lines`)
+}
+
 // ── Blog registry (docs/POSTS.md) ↔ content/blog ──────────
 const postsMd = readFileSync(at('docs/POSTS.md'), 'utf8')
 const postsBlock = postsMd.match(/<!-- posts:start[^>]*-->([\s\S]*?)<!-- posts:end -->/)
@@ -75,7 +87,7 @@ for (const p of posts) if (!postRegSlugs.has(p.slug)) errors.push(`blog/${p.slug
 
 // ── No secrets in content ──────────────────────────────────
 const SECRETS = [[/ca-app-pub-\d+/, 'AdMob ad unit ID'], [/AIza[0-9A-Za-z_-]{20,}/, 'Google API key'], [/storePassword|keyPassword|storeFile\s*=/, 'keystore detail']]
-for (const item of [...projects.map((p) => ['projects', p]), ...posts.map((p) => ['blog', p])]) {
+for (const item of [...projects.map((p) => ['projects', p]), ...posts.map((p) => ['blog', p]), ...snippets.map((p) => ['snippets', p])]) {
   const raw = readFileSync(item[1].file, 'utf8')
   for (const [re, what] of SECRETS) if (re.test(raw)) errors.push(`content/${item[0]}/${item[1].slug}.md contains a ${what}; remove it`)
 }
@@ -89,4 +101,4 @@ if (errors.length) {
 }
 const count = (s) => projects.filter((p) => p.status === s).length
 const published = posts.filter((p) => !p.draft).length
-console.log(`✓ ${projects.length} projects in sync (${count('live')} live · ${count('in-progress')} in progress · ${count('completed')} completed) · ${published} published post(s), ${posts.length - published} draft(s)`)
+console.log(`✓ ${projects.length} projects in sync (${count('live')} live · ${count('in-progress')} in progress · ${count('completed')} completed) · ${published} published post(s), ${posts.length - published} draft(s) · ${snippets.length} code snippets`)

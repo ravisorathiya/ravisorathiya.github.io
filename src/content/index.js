@@ -43,7 +43,14 @@ export const posts = Object.entries(postModules)
   .filter((p) => showDrafts || !p.draft)
   .sort((a, b) => b.date.localeCompare(a.date))
 
-export const types = [...new Set(projects.map((p) => p.type))]
+// Home-page code showcase (content/snippets): each body is a Shiki-highlighted block.
+const snippetModules = import.meta.glob('/content/snippets/*.md', { eager: true })
+
+export const snippets = Object.entries(snippetModules)
+  .map(([path, mod]) => ({ slug: slugFromPath(path), order: 100, notes: [], relatedProjects: [], ...frontmatterOf(mod), Body: mod.default }))
+  .sort((a, b) => a.order - b.order)
+
+export const types =[...new Set(projects.map((p) => p.type))]
 export const postTags = [...new Set(posts.flatMap((p) => p.tags))].sort()
 
 export const getProject = (slug) => projects.find((p) => p.slug === slug)

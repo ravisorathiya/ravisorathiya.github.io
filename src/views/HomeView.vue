@@ -1,8 +1,9 @@
 <script setup>
 import { computed } from 'vue'
 import { useMouse, usePreferredReducedMotion, useWindowSize } from '@vueuse/core'
-import { liveCount, posts, profile, projects, skills, socials, stats } from '../data/portfolio'
+import { liveCount, posts, profile, projects, skills, snippets, socials, stats } from '../data/portfolio'
 import AppIcon from '../components/AppIcon.vue'
+import CodeShowcase from '../components/CodeShowcase.vue'
 import Avatar3D from '../components/Avatar3D.vue'
 import CountUp from '../components/CountUp.vue'
 import IconMarquee from '../components/IconMarquee.vue'
@@ -155,6 +156,19 @@ const phoneTilt = computed(() => {
             <ProjectCard :project="p" class="w-full" />
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- How I build: modern-Android code showcase -->
+    <section v-if="snippets.length" class="pb-20">
+      <div class="container-page">
+        <SectionHeading
+          v-reveal
+          eyebrow="// how I build"
+          title="Modern Android, in code"
+          subtitle="Choose a technique to see how I use it. Tap a highlighted line to see why it's written that way."
+        />
+        <CodeShowcase v-reveal="100" />
       </div>
     </section>
 

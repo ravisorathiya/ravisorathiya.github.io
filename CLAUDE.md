@@ -19,6 +19,7 @@ Guidance for AI agents working on this repo. **This site is maintained with AI**
 | [`docs/POSTS.md`](docs/POSTS.md) | **Blog registry**: Ideas (to write), Registry (published / draft), Changelog |
 | `content/projects/<slug>.md` | One app = one file: frontmatter (data) + Markdown case study |
 | `content/blog/<slug>.md` | One article = one file: frontmatter + Markdown body (`draft: true` until approved) |
+| `content/snippets/<slug>.md` | One tab of the home page code showcase: one short `kotlin` block + tappable line `notes` (simplified samples, never real source) |
 | [`src/content/schema.js`](src/content/schema.js) | zod schemas, the exact rules every content file must pass |
 | [`src/data/portfolio.js`](src/data/portfolio.js) | Profile, skills, experience, nav (non-Markdown content) |
 

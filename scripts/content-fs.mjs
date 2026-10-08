@@ -5,7 +5,7 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import matter from 'gray-matter'
 import readingTime from 'reading-time'
-import { postSchema, projectSchema, slugFromPath } from '../src/content/schema.js'
+import { postSchema, projectSchema, slugFromPath, snippetSchema } from '../src/content/schema.js'
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url))
 const STATUS_ORDER = { 'in-progress': 0, live: 1, completed: 2 }
@@ -48,11 +48,19 @@ export function loadPosts({ includeDrafts = false } = {}) {
   return res
 }
 
+/** @returns {{ items: any[], errors: string[] }} */
+export function loadSnippets() {
+  const res = validate(snippetSchema, readDir('snippets'), 'snippets')
+  res.items.sort((a, b) => a.order - b.order)
+  return res
+}
+
 /** Throws with every validation error (used by the build). */
 export function loadAllOrThrow(opts) {
   const projects = loadProjects()
   const posts = loadPosts(opts)
-  const errors = [...projects.errors, ...posts.errors]
+  const snippets = loadSnippets()
+  const errors = [...projects.errors, ...posts.errors, ...snippets.errors]
   if (errors.length) throw new Error(`Invalid content:\n  ${errors.join('\n  ')}`)
   return { projects: projects.items, posts: posts.items }
 }

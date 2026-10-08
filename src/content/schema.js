@@ -44,4 +44,21 @@ export const postSchema = z
   })
   .strict()
 
+// Home-page code showcase: one tab = one short, simplified Kotlin snippet.
+export const SNIPPET_PREVIEWS = ['compose-filter']
+
+export const snippetSchema = z
+  .object({
+    title: z.string().min(1).max(30),
+    file: z.string().min(1),
+    caption: z.string().min(10).max(140, 'caption should be ≤ 140 characters'),
+    order: z.number().int().default(100),
+    relatedProjects: z.array(z.string()).min(1).max(4),
+    // An interactive mock of the code's result (see src/components/showcase/).
+    preview: z.enum(SNIPPET_PREVIEWS).optional(),
+    // Tappable explanations, keyed to 1-based line numbers of the code block.
+    notes: z.array(z.object({ line: z.number().int().positive(), text: z.string().min(10).max(160) }).strict()).max(6).default([]),
+  })
+  .strict()
+
 export { slugFromPath } from './schema-lite.js'
