@@ -79,7 +79,7 @@ export default defineConfig(({ command }) => {
         // forced reload after each deploy would only interrupt visitors.
         registerType: 'prompt',
         injectRegister: null, // registered from src/main.js on the client only
-        includeAssets: ['favicon.svg', 'apple-touch-icon.png'],
+        includeAssets: ['favicon.ico', 'favicon-96.png', 'apple-touch-icon.png'],
         manifest: {
           name: 'Ravi Sorathiya — Android Developer',
           short_name: 'Ravi.dev',

@@ -11,7 +11,7 @@ export function writeFeeds(posts, { siteUrl, author, outDir = 'dist' }) {
     link: `${siteUrl}/blog`,
     language: 'en',
     image: `${siteUrl}/og/default.png`,
-    favicon: `${siteUrl}/favicon.svg`,
+    favicon: `${siteUrl}/favicon-96.png`,
     copyright: `© ${new Date().getFullYear()} ${author}`,
     updated: new Date(posts[0].updated ?? posts[0].date),
     feedLinks: { rss: `${siteUrl}/blog/rss.xml`, atom: `${siteUrl}/blog/atom.xml` },
