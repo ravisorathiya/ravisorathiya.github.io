@@ -153,8 +153,16 @@ export const artisan = {
   ],
 }
 
-// Extra pages for the command palette and search index.
+// Every open-source tool, for the /open-source index.
+export const ossTools = [artisan]
+
+// Extra pages for pre-rendering, the sitemap, the command palette and the search index.
 export const ossPages = [
+  {
+    label: 'Open source',
+    to: '/open-source',
+    text: `open source github tools cli ${ossTools.map((t) => `${t.name} ${t.tagline}`).join(' ')}`,
+  },
   {
     label: 'kotlin-artisan (open source CLI)',
     to: artisan.path,

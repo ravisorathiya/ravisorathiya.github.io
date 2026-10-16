@@ -29,6 +29,7 @@ Showcase Ravi Sorathiya as an **Android developer (Kotlin, Jetpack Compose)**, c
 | `/projects/:slug` | `ProjectDetailView.vue` | Screenshot gallery (lightbox), features / under-the-hood tabs, **case study** (Markdown body), tech stack, Google Play badge, related apps |
 | `/blog` | `BlogIndexView.vue` | Dev Notes list, tag filter (`?tag=`), RSS link. Exists only when ≥ 1 published post. |
 | `/blog/:slug` | `BlogPostView.vue` | Article, table of contents, related apps, older/newer |
+| `/open-source` | `OssIndexView.vue` | Index of my open-source tools (`ossTools` in `src/data/oss.js`), one card each |
 | `/open-source/kotlin-artisan` | `OssArtisanView.vue` | Landing page for my open-source CLI: hero + install tabs, use-case blocks, real-output screenshots (lightbox), command explorer, `artisan.json`, notes workspace, CTA. `SoftwareApplication` JSON-LD, share image `og/oss/kotlin-artisan.png` |
 | `/contact` | `ContactView.vue` | Email, socials, mailto form |
 | `/404` | `NotFoundView.vue` | Not found (`noindex`) |

@@ -38,7 +38,8 @@ useSeo({
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
-        { '@type': 'ListItem', position: 2, name: artisan.name, item: url },
+        { '@type': 'ListItem', position: 2, name: 'Open source', item: `${SITE_URL}/open-source` },
+        { '@type': 'ListItem', position: 3, name: artisan.name, item: url },
       ],
     },
   ],

@@ -4,7 +4,7 @@ description: "Why I turned my PowerShell project script into an open-source Kotl
 date: 2026-10-16
 tags: ["Android", "Kotlin", "Open Source", "CLI", "Developer Tools", "adb"]
 relatedProjects: ["messages-compose"]
-draft: true
+draft: false
 ---
 
 <script setup>
