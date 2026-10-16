@@ -2,6 +2,7 @@
 // `##` sections, used by the Ctrl+K palette and the Projects page. The index and the
 // raw Markdown bodies are loaded lazily on first search, so none of it is in the main bundle.
 import { education, experience, nav, posts, profile, projects, skills, socials } from '../data/portfolio'
+import { ossPages } from '../data/oss'
 
 const projectRaw = import.meta.glob('/content/projects/*.md', { query: '?raw', import: 'default' })
 const postRaw = import.meta.glob('/content/blog/*.md', { query: '?raw', import: 'default' })
@@ -105,6 +106,7 @@ function getIndex() {
       text: pageText[n.to] ?? '',
       to: n.to,
     }))
+    for (const o of ossPages) docs.push({ id: `page:${o.to}`, kind: 'page', title: o.label, keywords: 'open source cli', summary: '', text: o.text, to: o.to })
 
     for (const p of projects) {
       const raw = await rawFor(projectRaw, 'projects', p.slug)

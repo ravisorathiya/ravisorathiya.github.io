@@ -30,6 +30,7 @@ Claude researches the real source code, writes the article as a draft, adds it t
 <!-- posts:start (parsed by scripts/check-content.mjs; keep the table format) -->
 | Slug | Title | Status | Date | Related apps |
 | --- | --- | --- | --- | --- |
+| kotlin-artisan-cli-for-android-developers | kotlin-artisan: I built an artisan-style CLI for Android projects | draft | 2026-10-16 | messages-compose |
 | find-ravi-sorathiya-android-developer | Ravi Sorathiya: Android developer, Kotlin & Jetpack Compose | published | 2026-10-06 | messages-compose, gallery-pro, pdf-reader |
 | how-i-use-ai-android-development-workflow | How I shaped AI to fit my Android development workflow | published | 2026-10-05 | pdf-reader, phone-call |
 | pdf-editor-pdfjs-webview-android | Building a PDF editor on Android with pdf.js inside a WebView | published | 2026-10-02 | pdf-reader |
@@ -37,7 +38,7 @@ Claude researches the real source code, writes the article as a draft, adds it t
 | shipping-android-apps-template-remote-config-baseline-profiles | One template, 11 Play Store apps: Remote Config, consent and Baseline Profiles | published | 2026-09-30 | phone-call, messages-compose, gallery-pro, calendar-2026 |
 <!-- posts:end -->
 
-**Totals:** 5 articles: 5 published · 0 drafts.
+**Totals:** 6 articles: 5 published · 1 draft.
 
 ---
 
@@ -45,6 +46,7 @@ Claude researches the real source code, writes the article as a draft, adds it t
 
 Newest first. One line per change.
 
+- **2026-10-16:** Drafted "kotlin-artisan: I built an artisan-style CLI for Android projects" (from the `ravioriginfo/kotlin-artisan` v0.2.0 source + real output captured on the Messages project), embedding the `ArtisanTerminal` and `InstallTabs` components.
 - **2026-10-06:** Published "Ravi Sorathiya: Android developer, Kotlin & Jetpack Compose" (owner approved).
 - **2026-10-06:** Drafted "Ravi Sorathiya: Android developer, Kotlin & Jetpack Compose" with 2 interactive components: `FindMeSearch` (a Google-style results mockup with a typing query, free-text matching, All/Apps/Articles tabs and a knowledge panel) and `ExploreMyWork` (interest → app → article explorer). Later the same day it gained `PlaySearchPhone`, `SharePreview`, `ContactCard`, `SkillMap`, `AppFinder` and `ShortcutKeys`, all driven by real `content/` data.
 - **2026-10-05:** Published "How I shaped AI to fit my Android development workflow" (owner approved).

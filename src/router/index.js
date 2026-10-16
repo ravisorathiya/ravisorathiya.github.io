@@ -9,6 +9,7 @@ export const routes = [
   { path: '/projects/:slug', name: 'project', component: () => import('../views/ProjectDetailView.vue'), props: true },
   { path: '/blog', name: 'blog', component: () => import('../views/BlogIndexView.vue') },
   { path: '/blog/:slug', name: 'post', component: () => import('../views/BlogPostView.vue'), props: true },
+  { path: '/open-source/kotlin-artisan', name: 'oss-artisan', component: () => import('../views/OssArtisanView.vue') },
   { path: '/contact', name: 'contact', component: () => import('../views/ContactView.vue') },
   { path: '/:pathMatch(.*)*', name: 'not-found', component: () => import('../views/NotFoundView.vue') },
 ]

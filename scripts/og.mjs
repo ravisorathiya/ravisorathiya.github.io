@@ -1,5 +1,5 @@
 // Generates 1200×630 Open Graph share images at build time with satori + resvg:
-//   dist/og/default.png, dist/og/projects/<slug>.png, dist/og/blog/<slug>.png
+//   dist/og/default.png, dist/og/projects/<slug>.png, dist/og/blog/<slug>.png, dist/og/oss/<slug>.png
 // Run automatically from vite.config.js (ssgOptions.onFinished), or standalone:
 //   node scripts/og.mjs
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
@@ -9,6 +9,7 @@ import satori from 'satori'
 import { Resvg } from '@resvg/resvg-js'
 import sharp from 'sharp'
 import { loadAllOrThrow, ROOT_DIR } from './content-fs.mjs'
+import { artisan } from '../src/data/oss.js'
 
 const W = 1200
 const H = 630
@@ -17,6 +18,7 @@ const fonts = [
   { name: 'Inter', data: font(400), weight: 400, style: 'normal' },
   { name: 'Inter', data: font(600), weight: 600, style: 'normal' },
   { name: 'Inter', data: font(800), weight: 800, style: 'normal' },
+  ...[400, 700].map((w) => ({ name: 'JetBrains Mono', data: readFileSync(join(ROOT_DIR, `node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-latin-${w}-normal.woff`)), weight: w, style: 'normal' })),
 ]
 
 // Tiny hyperscript for satori's element tree.
@@ -126,6 +128,34 @@ async function defaultCard(projects) {
   )
 }
 
+// Open-source tool card: dark terminal look (violet + emerald), same footer as the rest.
+function ossCard(t) {
+  const mono = { fontFamily: 'JetBrains Mono' }
+  const line = (cmd, out, color) =>
+    h('div', { ...mono, fontSize: 25, gap: 14 },
+      h('div', { color: '#a78bfa' }, '$'),
+      h('div', { color: '#fff', width: 470 }, cmd),
+      h('div', { color }, out),
+    )
+  return h(
+    'div',
+    { width: W, height: H, position: 'relative', fontFamily: 'Inter', color: '#fff', backgroundColor: '#0b1220', padding: 72, flexDirection: 'column', justifyContent: 'space-between' },
+    h('div', { position: 'absolute', top: -180, left: -140, width: 560, height: 560, borderRadius: 9999, backgroundColor: 'rgba(139,92,246,0.30)', filter: 'blur(90px)' }),
+    h('div', { position: 'absolute', bottom: -220, right: -140, width: 600, height: 600, borderRadius: 9999, backgroundColor: 'rgba(16,185,129,0.25)', filter: 'blur(90px)' }),
+    h('div', { flexDirection: 'column', gap: 22 },
+      h('div', { gap: 14 }, pill('Open source · MIT', '#c4b5fd'), pill('CLI for Android devs', '#6ee7b7')),
+      h('div', { ...mono, fontSize: 84, fontWeight: 700, letterSpacing: -2, gap: 26 }, h('div', { color: '#34d399' }, '$'), h('div', {}, t.name)),
+      h('div', { fontSize: 34, fontWeight: 600, color: '#e2e8f0' }, t.tagline),
+    ),
+    h('div', { flexDirection: 'column', gap: 10, padding: '22px 28px', borderRadius: 18, backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.10)' },
+      line('artisan app:dark on', 'Theme: DARK', '#4ade80'),
+      line('artisan check:strings', 'Total missing: 2', '#facc15'),
+      line('artisan app:font 1.3', 'Font scale: 1.3', '#4ade80'),
+    ),
+    footer('github.com/ravioriginfo/kotlin-artisan'),
+  )
+}
+
 async function render(tree, outFile) {
   const svg = await satori(tree, { width: W, height: H, fonts })
   const png = new Resvg(svg, { fitTo: { mode: 'width', value: W } }).render().asPng()
@@ -136,10 +166,12 @@ async function render(tree, outFile) {
 export async function generateOgImages({ projects, posts, outDir = join(ROOT_DIR, 'dist') }) {
   mkdirSync(join(outDir, 'og/projects'), { recursive: true })
   mkdirSync(join(outDir, 'og/blog'), { recursive: true })
+  mkdirSync(join(outDir, 'og/oss'), { recursive: true })
+  await render(ossCard(artisan), join(outDir, `og/oss/${artisan.slug}.png`))
   await render(await defaultCard(projects), join(outDir, 'og/default.png'))
   for (const p of projects) await render(await projectCard(p), join(outDir, `og/projects/${p.slug}.png`))
   for (const p of posts) await render(postCard(p), join(outDir, `og/blog/${p.slug}.png`))
-  return 1 + projects.length + posts.length
+  return 2 + projects.length + posts.length
 }
 
 // Standalone: node scripts/og.mjs [--drafts]

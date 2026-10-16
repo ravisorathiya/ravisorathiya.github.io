@@ -33,6 +33,7 @@
 | 📱 All apps (search + filters) | https://ravisorathiya.github.io/projects |
 | 🟢 Only apps live on Google Play | https://ravisorathiya.github.io/projects?status=live |
 | 📄 Flagship — PDF Reader & Editor | https://ravisorathiya.github.io/projects/pdf-reader |
+| ⌨️ Open source — kotlin-artisan CLI | https://ravisorathiya.github.io/open-source/kotlin-artisan |
 | 📝 Dev Notes (blog) | https://ravisorathiya.github.io/blog |
 | 📡 RSS feed | https://ravisorathiya.github.io/blog/rss.xml |
 | ✉️ Contact | https://ravisorathiya.github.io/contact |

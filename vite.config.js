@@ -8,6 +8,7 @@ import Shiki from '@shikijs/markdown-it'
 import matter from 'gray-matter'
 import readingTime from 'reading-time'
 import { SITE_URL } from './src/data/site.js'
+import { ossPages } from './src/data/oss.js'
 import { loadAllOrThrow } from './scripts/content-fs.mjs'
 import { writeFeeds } from './scripts/rss.mjs'
 import { generateOgImages } from './scripts/og.mjs'
@@ -23,6 +24,7 @@ export default defineConfig(({ command }) => {
     '/about',
     '/projects',
     '/contact',
+    ...ossPages.map((p) => p.to),
     ...projects.map((p) => `/projects/${p.slug}`),
     ...(posts.length ? ['/blog', ...posts.map((p) => `/blog/${p.slug}`)] : []),
   ]
@@ -121,7 +123,7 @@ export default defineConfig(({ command }) => {
         const today = new Date().toISOString().slice(0, 10)
         const lastmod = (p) => posts.find((x) => p === `/blog/${x.slug}`)?.updated ?? posts.find((x) => p === `/blog/${x.slug}`)?.date ?? today
         const priority = (p) =>
-          p === '/' ? '1.0' : p === '/projects' || p === '/blog' ? '0.9' : /^\/(projects|blog)\//.test(p) ? '0.8' : '0.6'
+          p === '/' ? '1.0' : p === '/projects' || p === '/blog' ? '0.9' : /^\/(projects|blog|open-source)\//.test(p) ? '0.8' : '0.6'
         const urls = pages
           .map((p) => `  <url><loc>${SITE_URL}${p}</loc><lastmod>${lastmod(p)}</lastmod><priority>${priority(p)}</priority></url>`)
           .join('\n')

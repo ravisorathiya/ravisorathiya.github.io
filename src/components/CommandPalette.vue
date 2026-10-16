@@ -3,6 +3,7 @@ import { computed, nextTick, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { onKeyStroke, useScrollLock, watchDebounced } from '@vueuse/core'
 import { nav, posts, projects } from '../data/portfolio'
+import { ossPages } from '../data/oss'
 import AppIcon from './AppIcon.vue'
 import StatusBadge from './StatusBadge.vue'
 import { highlight, preloadSearch, search } from '../utils/search'
@@ -37,6 +38,7 @@ function decorate(r) {
 // Default list (empty query): pages, apps, then articles.
 const defaults = [
   ...nav.map((n) => ({ id: `page:${n.to}`, kind: 'page', title: n.label, to: n.to })),
+  ...ossPages.map((o) => ({ id: `page:${o.to}`, kind: 'page', title: o.label, to: o.to })),
   ...projects.map((p) => ({ id: `app:${p.slug}`, kind: 'app', slug: p.slug, title: p.title, to: `/projects/${p.slug}` })),
   ...posts.map((p) => ({ id: `post:${p.slug}`, kind: 'post', slug: p.slug, title: p.title, to: `/blog/${p.slug}` })),
 ].map(decorate)

@@ -23,12 +23,13 @@ Showcase Ravi Sorathiya as an **Android developer (Kotlin, Jetpack Compose)**, c
 
 | Route | View | Purpose |
 | --- | --- | --- |
-| `/` | `HomeView.vue` | Hero + typewriter, count-up stats, phone mockup, icon marquee, featured apps, flagship spotlight, latest notes, CTA |
+| `/` | `HomeView.vue` | Hero + typewriter, count-up stats, phone mockup, icon marquee, featured apps, **open source** (kotlin-artisan block: animated real-output terminal + install tabs), code showcase, flagship spotlight, latest notes, CTA |
 | `/about` | `AboutView.vue` | Bio, tech explorer (skill → apps), interactive career journey (`CareerJourney.vue`: work + study timeline, linked cards) |
 | `/projects` | `ProjectsView.vue` | All apps; full-text search + status/type filters synced to the URL (`?q=&status=&type=`) |
 | `/projects/:slug` | `ProjectDetailView.vue` | Screenshot gallery (lightbox), features / under-the-hood tabs, **case study** (Markdown body), tech stack, Google Play badge, related apps |
 | `/blog` | `BlogIndexView.vue` | Dev Notes list, tag filter (`?tag=`), RSS link. Exists only when ≥ 1 published post. |
 | `/blog/:slug` | `BlogPostView.vue` | Article, table of contents, related apps, older/newer |
+| `/open-source/kotlin-artisan` | `OssArtisanView.vue` | Landing page for my open-source CLI: hero + install tabs, use-case blocks, real-output screenshots (lightbox), command explorer, `artisan.json`, notes workspace, CTA. `SoftwareApplication` JSON-LD, share image `og/oss/kotlin-artisan.png` |
 | `/contact` | `ContactView.vue` | Email, socials, mailto form |
 | `/404` | `NotFoundView.vue` | Not found (`noindex`) |
 
@@ -78,6 +79,11 @@ The file name is the slug and URL (`/projects/<slug>`). **Never rename a publish
 | `draft` | — | `true` = visible only in `npm run dev` / `build:drafts`; **stripped from production bundles** |
 
 Reading time is computed automatically. The article **list** (published, drafts, ideas) is tracked in [`POSTS.md`](POSTS.md).
+
+### Open-source tools: `src/data/oss.js`
+Not Markdown and not `projectSchema` (a CLI has no Play listing or app type). `artisan` holds the facts from the tool's own README (install commands, use cases, command groups, config sample); `ossPages` feeds pre-rendering, the sitemap, search and the palette. Plain JS so `vite.config.js` and `scripts/og.mjs` can import it.
+- `src/data/artisan-demos.json`: **real** terminal output (v0.2.0, run on a scratch copy of the Messages project, paths + device serial masked) replayed by `components/oss/ArtisanTerminal.vue`. Phone commands (`app:dark`, `app:font`) use the exact strings from the tool's source.
+- `public/images/oss/kotlin-artisan/*.svg`: the same captures as static terminal frames (spaces are U+00A0 so browsers don't collapse them).
 
 ### Code snippets: `content/snippets/<slug>.md`
 One tab of the home page's "How I build" showcase (`CodeShowcase.vue`). Schema: `snippetSchema`.
@@ -187,6 +193,7 @@ Newest first. Record decisions that a future agent might otherwise undo.
 
 | Date | Decision |
 | --- | --- |
+| 2026-10-16 | Marketing for my open-source CLI **kotlin-artisan** (github.com/ravioriginfo/kotlin-artisan): a home block after Selected work, a landing page at `/open-source/kotlin-artisan`, a footer link and a Dev Notes article. Open-source tools get their own data module (`src/data/oss.js`) and route, **not** `content/projects` (projectSchema is for Android apps). Demos must be real captured output, never invented. Violet accent is used only for this open-source branding. |
 | 2026-10-08 | Favicon is the profile photo (owner request, for Google results and browser tabs). `npm run icons` builds `favicon.ico` (16/32/48) and `favicon-96.png` as round crops of `public/images/avatar.webp`, plus square `apple-touch-icon` / maskable and round PWA icons. The old "RS" `favicon.svg` was removed. |
 | 2026-10-08 | Home page gets a "How I build" code showcase after Selected work: tabs for 10 modern-Android techniques (Compose, Flow, Hilt, Clean Architecture, Room, WorkManager, Media3, CameraX, Baseline Profiles, Gradle KTS). The layout follows Laravel's home page (owner request): a vertical list on desktop whose active item expands to show its description, and an underlined tab strip on phones. There are no pill chips. Each tab is a Markdown snippet in `content/snippets/` with tappable line notes; the Compose tab has a clickable preview. Samples are simplified and inspired by the apps, never real source. |
 | 2026-10-08 | On mobile (< md) the hamburger menu is gone: page links live in a floating iOS-style "liquid glass" bottom tab bar (`BottomTabBar.vue`, icons from `nav[].icon`) whose glass lens springs to the active tab and can be dragged across tabs to pick a page (iOS-style), and which compacts while scrolling down. The top bar keeps logo, search and theme toggle. |

@@ -3,6 +3,9 @@ import { computed } from 'vue'
 import { useMouse, usePreferredReducedMotion, useWindowSize } from '@vueuse/core'
 import { liveCount, posts, profile, projects, skills, snippets, socials, stats } from '../data/portfolio'
 import AppIcon from '../components/AppIcon.vue'
+import ArtisanTerminal from '../components/oss/ArtisanTerminal.vue'
+import InstallTabs from '../components/oss/InstallTabs.vue'
+import { artisan } from '../data/oss'
 import CodeShowcase from '../components/CodeShowcase.vue'
 import Avatar3D from '../components/Avatar3D.vue'
 import CountUp from '../components/CountUp.vue'
@@ -154,6 +157,42 @@ const phoneTilt = computed(() => {
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           <div v-for="(p, i) in featured" :key="p.slug" v-reveal="i * 100" class="flex">
             <ProjectCard :project="p" class="w-full" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Open source: kotlin-artisan -->
+    <section class="pb-20">
+      <div class="container-page">
+        <div v-reveal class="relative overflow-hidden rounded-3xl border border-violet-500/20 bg-gradient-to-br from-violet-50 via-white to-emerald-50 p-6 sm:p-10 dark:from-violet-950/40 dark:via-slate-900 dark:to-emerald-950/30">
+          <div class="grid items-center gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)]">
+            <div class="min-w-0">
+              <p class="font-mono text-sm font-medium text-violet-600 dark:text-violet-400">// open source · MIT</p>
+              <h2 class="mt-2 font-mono text-3xl font-bold tracking-tight sm:text-4xl">
+                <span class="text-brand-600 dark:text-brand-400">$</span> {{ artisan.name }}
+              </h2>
+              <p class="mt-3 text-lg font-semibold text-slate-800 dark:text-slate-200">{{ artisan.tagline }}</p>
+              <p class="mt-2 text-slate-600 dark:text-slate-400">
+                A Laravel-artisan-style CLI I built for Android projects. Dark mode, font scale, screenshots, missing translations, Crashlytics: one word each.
+              </p>
+              <ul class="mt-5 space-y-2">
+                <li v-for="pt in artisan.points" :key="pt.title" class="flex gap-2 text-sm text-slate-700 dark:text-slate-300">
+                  <AppIcon name="check" class="mt-0.5 size-4 shrink-0 text-brand-500" />
+                  <span><strong class="font-semibold text-slate-900 dark:text-white">{{ pt.title }}.</strong> {{ pt.text }}</span>
+                </li>
+              </ul>
+              <InstallTabs :show-source="false" class="mt-6" />
+              <div class="mt-6 flex flex-wrap gap-3">
+                <RouterLink :to="artisan.path" class="btn-primary">
+                  Explore the CLI <AppIcon name="arrow" class="size-4" />
+                </RouterLink>
+                <a :href="artisan.repo" target="_blank" rel="noopener" class="btn-ghost">
+                  <AppIcon name="star" class="size-4" /> Star on GitHub
+                </a>
+              </div>
+            </div>
+            <ArtisanTerminal class="min-w-0" />
           </div>
         </div>
       </div>

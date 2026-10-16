@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { profile, socials } from '../data/portfolio'
+import { artisan } from '../data/oss'
 import AppIcon from './AppIcon.vue'
 import SupportDialog from './SupportDialog.vue'
 
@@ -11,7 +12,12 @@ const supportOpen = ref(false)
 <template>
   <footer class="border-t border-slate-200 py-8 dark:border-slate-800">
     <div class="container-page flex flex-col items-center justify-between gap-4 sm:flex-row">
-      <p class="text-sm text-slate-500">© {{ year }} {{ profile.name }}. Built with Vue &amp; Tailwind.</p>
+      <p class="text-center text-sm text-slate-500 sm:text-left">
+        © {{ year }} {{ profile.name }}. Built with Vue &amp; Tailwind.
+        <RouterLink :to="artisan.path" class="ml-1 inline-flex items-center gap-1 font-mono text-violet-600 hover:underline dark:text-violet-400">
+          <AppIcon name="terminal" class="size-3.5" /> {{ artisan.name }}
+        </RouterLink>
+      </p>
       <div class="flex items-center gap-2">
         <button
           class="mr-1 inline-flex items-center gap-1.5 rounded-full border border-slate-200 px-3 py-1.5 text-sm text-slate-500 transition hover:border-amber-400 hover:text-amber-500 dark:border-slate-800"
