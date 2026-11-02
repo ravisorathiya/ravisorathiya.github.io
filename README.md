@@ -84,7 +84,7 @@ publish.cmd         → double-click to publish
 | <img src="public/images/apps/messages-compose.webp" width="48" /> | [**Messages**](https://ravisorathiya.github.io/projects/messages-compose) | Default SMS & MMS app built in Jetpack Compose | 🟢 [Google Play](https://play.google.com/store/apps/details?id=com.message.textmessenger.smsapp) |
 | <img src="public/images/apps/gallery-pro.webp" width="48" /> | [**Gallery - Photo Gallery**](https://ravisorathiya.github.io/projects/gallery-pro) | Compose gallery with timeline, editor & photo picker | 🟢 [Google Play](https://play.google.com/store/apps/details?id=com.gallery.picturegalleryapp.gallerypro) |
 
-➡️ **[See all 13 apps →](https://ravisorathiya.github.io/projects)**
+➡️ **[See all 14 apps →](https://ravisorathiya.github.io/projects)**
 
 ---
 
