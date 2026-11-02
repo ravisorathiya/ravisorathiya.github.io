@@ -49,7 +49,6 @@ const steps = [
       { label: 'Holidays, events and widgets', slug: 'calendar-2026' },
       { label: 'Actually waking up on time', slug: 'alarm-clock' },
       { label: 'Reading, signing and editing PDFs', slug: 'pdf-reader' },
-      { label: 'Recording audio', slug: 'voice-recorder' },
     ],
   },
 ]

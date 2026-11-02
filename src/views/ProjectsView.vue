@@ -66,6 +66,8 @@ const filtered = computed(() => {
   const list = sorted.filter((p) => matches(p))
   return rank.value ? list.sort((a, b) => rank.value.get(a.slug) - rank.value.get(b.slug)) : list
 })
+// Only offer status filters that at least one app has (e.g. no "Completed 0" pill).
+const usedStatuses = Object.fromEntries(Object.entries(statuses).filter(([key]) => projects.some((p) => p.status === key)))
 const statusCount = (s) => projects.filter((p) => matches(p, { s })).length
 const typeCount = (t) => projects.filter((p) => matches(p, { t })).length
 const hasFilters = computed(() => q.value || status.value || type.value)
@@ -106,7 +108,7 @@ const pill = (on) =>
         <span class="mr-1 w-14 text-xs font-semibold tracking-wide text-slate-500 uppercase">Status</span>
         <button class="rounded-full px-3.5 py-1.5 text-sm font-medium transition" :class="pill(!status)" @click="status = ''">All</button>
         <button
-          v-for="(meta, key) in statuses"
+          v-for="(meta, key) in usedStatuses"
           :key="key"
           class="rounded-full px-3.5 py-1.5 text-sm font-medium transition"
           :class="pill(status === key)"

@@ -40,10 +40,9 @@ _(empty)_
 | alarm-clock | Alarm Clock | live | Productivity | | com.alarmclock.simplealarm.alarmapp | `producation/Alram_Beatiful_Disater/1.5/Alarm Clock - Beautifuls Disaster` |
 | messenger-all-social | Messenger - All Social Apps | live | Social | | com.allmessages.messengerapp.allinonesocialmediaapps | `producation/Messenger_sc_29_12_2025` |
 | noys-music-video-maker | Noys - Music Video Maker | live | Gallery & Media | | vishow.musical.video.maker.editor | — (earlier app, source not in workspace; content from its Play listing) |
-| voice-recorder | Voice Recorder | completed | Productivity | | — | `development/completed/VoiceRecorder` |
 <!-- registry:end -->
 
-**Totals:** 14 apps: 12 live · 1 in progress · 1 completed.
+**Totals:** 13 apps: 12 live · 1 in progress.
 
 ---
 
@@ -57,6 +56,7 @@ Apps that were deliberately removed or skipped. Before adding a new project, che
 | `development/completed/RaviPhoneCall` | Ravi Phone Call | Unpublished; owner asked to remove | 2026-10-02 |
 | `development/completed/RaviQuickSMS` (+ `_Origin`) | RaviMessage | Unpublished; owner asked to remove | 2026-10-02 |
 | `development/completed/AllMessageSocial` | All Message Social | Unpublished; owner asked to remove | 2026-10-02 |
+| `development/completed/VoiceRecorder` | Voice Recorder (`voice-recorder`) | Owner asked to remove | 2026-11-02 |
 | `development/ongoing/daily-backup` | — | Zip snapshots only, not a project | 2026-10-02 |
 | `development/queued/PDFReaderOrigin` | — | Older snapshot of `pdf-reader` | 2026-10-02 |
 
@@ -66,6 +66,7 @@ Apps that were deliberately removed or skipped. Before adding a new project, che
 
 Newest first. One line per change to the project list.
 
+- **2026-11-02:** Removed `voice-recorder` (Voice Recorder, completed); owner asked to remove. Moved to Excluded.
 - **2026-10-02:** Added `noys-music-video-maker` (Noys - Music Video Maker, live). It's an earlier app with no local source, so its content comes from the owner's Google Play listing.
 - **2026-10-02:** Moved all apps to Markdown files in `content/projects/`, with case studies and Google Play screenshots.
 - **2026-10-02:** Removed `all-message-social`, `ravi-message`, `ravi-phone-call`, `ravi-gallery` (unpublished).
